@@ -1,0 +1,114 @@
+commit 914c7317eeb544231b16dcaeef10e204f8aca16b
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 16:06:47 2022 +0200
+
+    file1 poisto, file2 uudelleennimentä file22
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit a77049bdbe3874e5d3bcf1b014d96a7797626927
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 15:59:30 2022 +0200
+
+    uusi hakemisto tiedostoja
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 128dcfca12fffe88e3e6cc21965ea0ac6ec3ea20
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 15:39:11 2022 +0200
+
+    muutoksia eka.txt ja kolmas.txt
+
+ eka.txt    | 3 ++-
+ kolmas.txt | 4 +++-
+ 2 files changed, 5 insertions(+), 2 deletions(-)
+
+commit 642db00bee83ad949a56192bb7ed922479244428
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 15:33:04 2022 +0200
+
+    tiedosto.txt uudelleennimentä eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 24714137a6d93038cc5de8ee28be3d4abfe20201
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 15:24:25 2022 +0200
+
+    toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit 8b7885154046c1796fbbde3ec24ae8629930ea73
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 15:11:41 2022 +0200
+
+    tiedosto.txt lisää muutoksia
+
+ tiedosto.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 7aa35d92c5818f1aa587e294730e5c8a35206159
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 15:06:44 2022 +0200
+
+    tiedosto.txt muutos
+
+ tiedosto.txt | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit 66a1b9af2ecac102d6bd9258949f2d69701090b2
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 14:10:07 2022 +0200
+
+    hakemisto stuff ja uusitiedosto.txt luotu
+
+ stuff/uusitiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 0f58297e4fb1fb9f1324b713dc8c252b7562c7d2
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 14:00:43 2022 +0200
+
+    toinen.txt ja kolmas.txt muutos
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 9d169ab2815371bc7aefff11d64950554fee2c31
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 13:56:32 2022 +0200
+
+    kolmas.txt luotu
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit badf0c451bcb301fb705963d55d7a777e24c629b
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Tue Nov 8 13:50:35 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 61439da538aac8d75f661c6e27e9c06bb3eefe3d
+Author: Lotta Pispa <lotta.pispa@helsinki.fi>
+Date:   Mon Nov 7 23:42:59 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
