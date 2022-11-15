@@ -1,5 +1,5 @@
 # Sovelluksen tarkoitus
-Snake peli.
+Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä pysyä hengissä/pelissä niin kauan kuin mahdollista.
 ## Käyttäjäroolit
 - Pelaaja voi tehdä käyttäjän, millä kirjaantuneena, pelien tulokset voivat tallentua highscore taulukkoon.
 ## Toiminnallisuus
