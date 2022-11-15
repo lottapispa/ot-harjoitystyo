@@ -1,4 +1,4 @@
-## Sovelluksen tarkoitus
+# Sovelluksen tarkoitus
 Snake peli.
 ## Käyttäjäroolit
 - Pelaaja voi tehdä käyttäjän, millä kirjaantuneena, pelien tulokset voivat tallentua highscore taulukkoon.
