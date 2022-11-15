@@ -40,12 +40,29 @@ class TestKassapaate(unittest.TestCase):
 
     def test_edulliset_korttiosto_toimii(self):
         if self.assertTrue(Kassapaate().syo_edullisesti_kortilla(240)):
+            Maksukortti().ota_rahaa(240)
+            self.assertEqual(str(self.saldo), "100000")
             self.assertEqual(str(self.edulliset), "1")
+            return True
         else:
+            self.assertEqual(str(self.saldo), "100000")
             self.assertEqual(str(self.edulliset), "0")
+            return False
 
     def test_maukkaat_korttiosto_toimii(self):
         if self.assertTrue(Kassapaate().syo_maukkaasti_kortilla(400)):
+            Maksukortti().ota_rahaa(400)
+            self.assertEqual(str(self.saldo), "100000")
             self.assertEqual(str(self.maukkaat), "1")
+            return True
         else:
+            self.assertEqual(str(self.saldo), "100000")
             self.assertEqual(str(self.maukkaat), "0")
+            return False
+
+    def test_rahaa_ladattaessa_kortin_saldo_muuuttuu(self):
+        Kassapaate().lataa_rahaa_kortille(Maksukortti(500), 500)
+        #kortin saldo muuttuu
+        self.assertEqual(str(Maksukortti(500)), "Kortilla on rahaa 5.00 euroa")
+        #kassassa oleva rahamäärä kasvaa
+        self.assertEqual(str(self.saldo), "100000")
