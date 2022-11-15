@@ -5,4 +5,4 @@
 [gitlog.txt](https://github.com/lottapispa/ot-harjoitystyo/blob/master/laskarit/viikko1/gitlog.txt)\
 Tehtävä 16\
 Tehtävä 17 muutos\
-[Vaatimusmäärittely]()\
+[Vaatimusmäärittely](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
