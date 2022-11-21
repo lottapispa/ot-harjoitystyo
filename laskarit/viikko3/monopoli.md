@@ -11,7 +11,7 @@
 	    +Player()
 	    +string pawnLocation
 	}
-	class GameBoard{
+	class Monopoly{
 	    +int getPlayers(amount)
 	    +int getSquares(40)
 	}
