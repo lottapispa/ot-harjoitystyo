@@ -3,6 +3,7 @@
  classDiagram
  	Monopoly <|-- Player
 	Monopoly <|-- Square
+	Square <|-- Cards
 	class Dice{
 	    +rollDice
 	}
@@ -25,7 +26,6 @@
 	    squareType: katu
 	}
 	class Cards{
-	    Square <|-- Cards
 	    +Card()
 	}
 
