@@ -2,6 +2,7 @@
 ```mermaid
  classDiagram
  	Monopoly <|-- Player
+	Monopoly <|-- Dice
 	Monopoly <|-- Square
 	Square <|-- Cards
 	class Dice{
