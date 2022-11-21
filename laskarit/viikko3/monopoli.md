@@ -2,7 +2,6 @@
 ```mermaid
  classDiagram
  	Monopoly <|-- Player
-	Monopoly <|-- GameBoard
 	Monopoly <|-- Square
 	class Dice{
 	    +rollDice
