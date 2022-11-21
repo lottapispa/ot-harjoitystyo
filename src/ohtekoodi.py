@@ -3,12 +3,20 @@ import random
 
 # Write code in english!
 
+screenWidth = 640
+screenHeight = 480
+up = (0, -1)
+down = (0, 1)
+left = (-1, 0)
+right = (1, 0)
+
 class Snake():
     def __init__(self):
         self.length = 1
         self.color = (102, 205, 0)
         self.location = [(screenWidth/2), (screenHeight/2)] #lista
         self.direction = random.choice([up, down, left, right])
+        self.snake = pygame.draw.rect((screenWidth, screenHeight), self.color, pygame.Rect(10, 10, 20, 20))
 
     def head_location(self):
         return self.location[0]
@@ -34,23 +42,16 @@ class Food():
     def location():
         pass
 
-screenWidth = 640
-screenHeight = 480
-up = (0, -1)
-down = (0, 1)
-left = (-1, 0)
-right = (1, 0)
-
 def main():
     pygame.init()
-    clock = pygame.time.Clock()
     screen = pygame.display.set_mode((screenWidth, screenHeight))
-    screen.fill((255,248,220))
-    snake = Snake()
-    food = Food()
-
-
-while True:
-    for tapahtuma in pygame.event.get():
-        if tapahtuma.type == pygame.QUIT:
-            exit()
+    snake = Snake().self.snake
+    clock = pygame.time.Clock()
+    while True:
+        for tapahtuma in pygame.event.get():
+            if tapahtuma.type == pygame.QUIT:
+                exit()
+        screen.fill((255,248,220))
+        screen.blit(snake, )
+        pygame.display.flip()
+        clock.tick(60)
