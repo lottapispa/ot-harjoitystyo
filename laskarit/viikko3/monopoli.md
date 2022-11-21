@@ -17,8 +17,13 @@
 	}
 	class Square{
 	    +Square()
-	    squareType:
-	    {aloitusruutu, vankila, sattuma, yhteismaa, asema, laitois, katu}
+	    squareType: aloitusruutu
+	    squareType: vankila
+	    squareType: sattuma
+	    squareType: yhteismaa
+	    squareType: asema
+	    squareType: laitos
+	    squareType: katu
 	}
 	class Cards{
 	    +Card()
