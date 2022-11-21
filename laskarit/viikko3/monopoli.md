@@ -25,6 +25,7 @@
 	    squareType: katu
 	}
 	class Cards{
+	    Square <|-- Cards
 	    +Card()
 	}
 
