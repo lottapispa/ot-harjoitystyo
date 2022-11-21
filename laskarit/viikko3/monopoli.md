@@ -1,8 +1,26 @@
 # Monopoly luokkakaavio
 ```mermaid
  classDiagram
-	Todo "*" --> "1" User
+ 	Monopoly <|-- Player
+	Monopoly <|-- GameBoard
+	Monopoly <|-- Square
+	class Dice{
+	    +rollDice
+	}
 	class Player{
-	    player
+	    +Player()
+	    +string pawnLocation
 	}
 	class GameBoard{
+	    +int getPlayers(amount)
+	    +int getSquares(40)
+	}
+	class Square{
+	    +Square()
+	    squareType:
+	    {aloitusruutu, vankila, sattuma, yhteismaa, asema, laitois, katu}
+	}
+	class Cards{
+	    +Card()
+	}
+
