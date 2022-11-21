@@ -6,12 +6,24 @@ category = "main"
 optional = false
 python-versions = "*"
 
+[[package]]
+name = "invoke"
+version = "1.7.3"
+description = "Pythonic task execution"
+category = "main"
+optional = false
+python-versions = "*"
+
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "9e3686bf2277d983c32755f1cc37e606c1a4c4fa2153b5f6032b5930bc86a7ae"
+content-hash = "4e6114a90f8602b2ec646b55db55969898ebf71f8fdc94d265e7c34a3038b376"
 
 [metadata.files]
 cowsay = [
     {file = "cowsay-5.0.tar.gz", hash = "sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3"},
+]
+invoke = [
+    {file = "invoke-1.7.3-py3-none-any.whl", hash = "sha256:d9694a865764dd3fd91f25f7e9a97fb41666e822bbb00e670091e3f43933574d"},
+    {file = "invoke-1.7.3.tar.gz", hash = "sha256:41b428342d466a82135d5ab37119685a989713742be46e42a3a399d685579314"},
 ]
