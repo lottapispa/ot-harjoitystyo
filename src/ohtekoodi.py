@@ -19,7 +19,6 @@ class Snake():
         self.length = 1
         self.color = (102, 205, 0) # green
         self.location = [310, 230] #lista
-        self.direction = random.choice([up, down, left, right])
 
     def head_location(self):
         return self.location[0] # width, so horizontal
@@ -43,11 +42,11 @@ class Snake():
         pygame.init()
         self.font = pygame.font.SysFont("Candara" , 24)
         self.bigfont = pygame.font.SysFont("Candara" , 36)
-        self.screen = pygame.display.set_mode((screenWidth, screenHeight))
-        self.screen.fill((255,248,220)) # cream white
-        pygame.draw.rect(self.screen, (0, 0, 0), (220, 100, 200, 250)) # color black
+        screen = pygame.display.set_mode((screenWidth, screenHeight))
+        screen.fill((255,248,220)) # cream white
+        pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 250)) # color black
         gameOver = self.bigfont.render("Game Over", True, (255,97,3))
-        self.screen.blit(gameOver, (250, 130))
+        screen.blit(gameOver, (250, 130))
         points = self.font.render("Points: ", True, (255,248,220))
         screen.blit(points, (275, 175))
         time = self.font.render("Time: ", True, (255,248,220))
@@ -56,7 +55,7 @@ class Snake():
         # lisää highscore pisteet edelliseen
         screen.blit(highscore, (275, 255))
         playAgain = self.font.render("Play Again", True, (255,248,220)) # cream white
-        self.screen.blit(playAgain, (275, 295))
+        screen.blit(playAgain, (275, 295))
         # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
         # reset snake to original values in case of new game
