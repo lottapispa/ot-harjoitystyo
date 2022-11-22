@@ -3,4 +3,4 @@
  | --------- | -------- | ------------- 
  | 15.11 | 1 | vaatimusmäärittely ja linkkien lisäys README.md 
  | 21.11 | 1,5 | poetry projektin alustus repositorioon ja koodin aloitus
- | 22.11 | 3 | koodin jatkaminen
+ | 22.11 | 4 | koodin jatkaminen
