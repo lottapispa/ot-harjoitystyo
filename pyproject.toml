@@ -9,6 +9,7 @@ packages = [{include = "ot_harjoitustyo"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 cowsay = "^5.0"
+pygame = "^2.1.2"
 
 
 [tool.poetry.group.dev.dependencies]
