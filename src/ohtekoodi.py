@@ -36,13 +36,9 @@ class Snake():
     #    pass
 
     def draw_snake(self, x, y):
-        pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20)) # 20 is the size of the snake, 100 the location
+        pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20)) # 20 is the size of the snake, x & y the location
 
     def die(self):
-        # reset snake to original values in case of new game
-        self.length = 1
-        self.location = [(screenWidth/2), (screenHeight/2)] #lista
-        self.direction = random.choice([up, down, left, right])
         # Game over window
         pygame.init()
         self.font = pygame.font.SysFont("Candara" , 24)
@@ -51,14 +47,22 @@ class Snake():
         self.screen.fill((255,248,220)) # cream white
         pygame.draw.rect(self.screen, (0, 0, 0), (220, 100, 200, 250)) # color black
         gameOver = self.bigfont.render("Game Over", True, (255,97,3))
-        self.screen.blit(gameOver, (250, 140))
-        playAgain = self.font.render("Play Again", True, (255,248,220)) # cream white
-        self.screen.blit(playAgain, (275, 200))
-        # jos hiiri painaa nappia, uusi peli
+        self.screen.blit(gameOver, (250, 130))
+        points = self.font.render("Points: ", True, (255,248,220))
+        screen.blit(points, (275, 175))
+        time = self.font.render("Time: ", True, (255,248,220))
+        screen.blit(time, (275, 215))
         highscore = self.font.render("Highscore: ", True, (255,248,220)) # cream white
         # lisää highscore pisteet edelliseen
-        self.screen.blit(highscore, (275, 250))
+        screen.blit(highscore, (275, 255))
+        playAgain = self.font.render("Play Again", True, (255,248,220)) # cream white
+        self.screen.blit(playAgain, (275, 295))
+        # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
+        # reset snake to original values in case of new game
+        self.length = 1
+        self.location = [(screenWidth/2), (screenHeight/2)] #lista
+        self.direction = random.choice([up, down, left, right])
 
 #class Food():
 #    def __init__():

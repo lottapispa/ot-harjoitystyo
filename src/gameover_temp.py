@@ -9,13 +9,17 @@ font = pygame.font.SysFont("Candara" , 24)
 bigfont = pygame.font.SysFont("Candara" , 36)
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 screen.fill((255,248,220))
-pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 220)) # color black
+pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 250)) # color black
 gameOver = bigfont.render("Game Over!", True, (255,97,3)) # cream white
-screen.blit(gameOver, (250, 140))
-playAgain = font.render("Play Again", True, (255,248,220)) # cream white
-screen.blit(playAgain, (275, 200))
+screen.blit(gameOver, (250, 130))
+points = font.render("Points: ", True, (255,248,220))
+screen.blit(points, (275, 175))
+time = font.render("Time: ", True, (255,248,220))
+screen.blit(time, (275, 215))
 highscore = font.render("Highscore: ", True, (255,248,220)) # cream white
-screen.blit(highscore, (275, 250))
+screen.blit(highscore, (275, 255))
+playAgain = font.render("Play Again", True, (255,248,220)) # cream white
+screen.blit(playAgain, (275, 295))
 pygame.display.flip()
 while True:
     for tapahtuma in pygame.event.get():
