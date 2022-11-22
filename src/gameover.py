@@ -19,6 +19,9 @@ screen.blit(highscore, (275, 250))
 pygame.display.flip()
 while True:
     for tapahtuma in pygame.event.get():
+        # if you press play again, game starts over
+        #if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
+        #    main()
         if tapahtuma.type == pygame.QUIT:
             exit()
 
