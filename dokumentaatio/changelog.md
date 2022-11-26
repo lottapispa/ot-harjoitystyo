@@ -5,3 +5,4 @@
 - Käärme kuolee, kun se osuu seinään
 - Lisätty vain vähän testejä
 ### Viikko 4
+- invoke komennot saatu toimimaan
