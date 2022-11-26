@@ -11,6 +11,6 @@ Toimii versiolla 3.8 ja uudemmilla
 
 ### Komentorivitoiminnot
 ##### Ohjelman suorittaminen
-poetry run invoke start
+`poetry run invoke start`
 ##### Ohjelman testaus
-poetry run invoke test
+`poetry run invoke test`
