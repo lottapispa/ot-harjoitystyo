@@ -10,7 +10,7 @@ Toimii versiolla 3.8 ja uudemmilla
 - [Changelog](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/changelog.md)
 
 ### Komentorivitoiminnot
-#### Ohjelman suorittaminen:
+#### Ohjelman suorittaminen komennolla:
 `poetry run invoke start`
-#### Ohjelman testaus:
+#### Ohjelman testaus komennolla:
 `poetry run invoke test`
