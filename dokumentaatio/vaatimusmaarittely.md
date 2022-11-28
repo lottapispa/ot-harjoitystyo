@@ -1,7 +1,7 @@
 # Sovelluksen tarkoitus
 Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä pysyä hengissä/pelissä niin kauan kuin mahdollista.
 ## Toiminnallisuus
-- Käärme liikkuu itsestään √
+- Käärme liikkuu itsestään 
 - Käärmeen suuntaa voi kääntää nuolinäppäimillä.
 - Peliruudulle ilmestyy ruokaa, joka pysyy ruudulla hetken kunnes se katoaa tai käärme syö sen.
 - Käärme kasvaa ja kerää pisteitä, kun se syö.
