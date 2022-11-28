@@ -1,6 +1,8 @@
 import random
 import pygame
 
+# switch the word tapahtuma to event or ev
+
 # Global variables
 screenWidth = 640
 screenHeight = 480
@@ -89,7 +91,18 @@ class Snake():
         screen.blit(playAgain, (275, 295))
         # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
-        # reset snake to original values in case of new game
+        while True:
+            for tapahtuma in pygame.event.get():
+                if tapahtuma.type == pygame.QUIT:
+                    exit()
+                if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
+                    mouse = pygame.mouse.get_pos()
+                    if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
+                        self.reset()
+                        main()
+
+    def reset(self):
+        # reset snake to original values for new game
         self.length = 1
         self.location = [(screenWidth/2), (screenHeight/2)]  # lista
         self.direction = random.choice([up, down, left, right])
