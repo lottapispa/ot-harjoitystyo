@@ -1,10 +1,7 @@
 import random
 import pygame
 
-# Progress
-# So far the short snake appears on screen and moves on it's own, but doesn't turn yet
-# The snake dies when it hits the wall, but game over window doesn't stay on screen and instead disappears instantly
-
+# Global variables
 screenWidth = 640
 screenHeight = 480
 up = (0, -1)
@@ -19,25 +16,54 @@ class Snake():
     def __init__(self):
         self.length = 1
         self.color = (102, 205, 0)  # green
-        self.location = [310, 230]  # lista
+        self.location = [(screenWidth/2), (screenHeight/2)]  # lista
+        self.direction = random.choice([up,down,left,right])
 
     def head_location(self):
-        return self.location[0]  # width, so horizontal
-
-    # def turn(self):
-        # Jos käärme on vain 1 pituinen, se voi kääntyä mihin tahansa suuntaan. Jos se on isompi niin se voi kääntyä 3 suuntaan
-        # eli ei ns taaksepäin, koska osa käärmeestä on jo takana eli se ei voi mennä itsensä päälle.
-        # if self.length == 1:
-        #    pass
-        # else:
-        #    pass
-
-    # def grow(self):
-    #    pass
+        return self.location[0] 
 
     def draw_snake(self, x, y):
         # 20 is the size of the snake, x & y the location
         pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20))
+
+    # Jos käärme on vain 1 pituinen, se voi kääntyä mihin tahansa suuntaan. Jos se on isompi niin se voi kääntyä 3 suuntaan
+    # eli ei taaksepäin, koska se ei voi mennä itsensä päälle.
+
+    def turn_up(self):
+        if self.direction != down or self.length == 1:
+            self.direction = up
+
+    def turn_down(self):
+        if self.direction != up or self.length == 1:
+            self.direction = down
+
+    def turn_left(self):
+        if self.direction != right or self.length == 1:
+            self.direction = left
+
+    def turn_right(self):
+        if self.direction != left or self.length == 1:
+            self.direction = right
+
+    def move(self):
+        pass
+        
+    def keyboard(self):
+        for tapahtuma in pygame.event.get():
+            if tapahtuma.type == pygame.KEYDOWN:
+                if tapahtuma.key == pygame.K_UP:
+                    self.turn_up()
+                if tapahtuma.key == pygame.K_DOWN:
+                    self.turn_down()
+                if tapahtuma.key == pygame.K_LEFT:
+                    self.turn_left()
+                if tapahtuma.key == pygame.K_RIGHT:
+                    self.turn_right()
+            if tapahtuma.type == pygame.QUIT:
+                exit()
+
+    # def grow(self):
+    #    pass
 
     def die(self):
         # Game over window
@@ -68,32 +94,50 @@ class Snake():
         self.location = [(screenWidth/2), (screenHeight/2)]  # lista
         self.direction = random.choice([up, down, left, right])
 
-# class Food():
-#    def __init__():
-#        pass
+class Food():
+    def __init__(self):
+        self.size = 8 # radius
+        self.color = (139,69,19)
+        self.location = (0,0)
+        self.random_location()
 
-#    def location():
-#        pass
+    def random_location(self):
+        self.location = (random.randint(0+self.size+3, 640-self.size-3), random.randint(5+self.size+3, 480-self.size-3))
+
+    def draw_food(self):
+        pygame.draw.circle(screen, self.color, self.location, self.size)
+
+    # how often does food show up on screen
+    #def frequency(self):
+    #    pass
+
+class Score():
+    def __init__(self):
+        self.points = 0
+        self.count = 0
+
+    #def eating(self):
+    # check if snake and food collide and count food eaten
+    #    pass
 
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((screenWidth, screenHeight))
-    x = 310
-    y = 230
+    x = (screenWidth/2)
+    y = (screenHeight/2)
     clock = pygame.time.Clock()
     while True:
         for tapahtuma in pygame.event.get():
             if tapahtuma.type == pygame.QUIT:
                 exit()
         screen.fill((255, 248, 220))  # cream white
-        Snake().draw_snake(x, y)
+        Snake().draw_snake(x,y)
         pygame.display.flip()
         x += 1
         if x + 20 >= 640:
             break
         clock.tick(60)
     Snake().die()
-
 
 main()
