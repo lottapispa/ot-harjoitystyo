@@ -1,5 +1,5 @@
-import pygame
 import random
+import pygame
 
 # Progress
 # So far the short snake appears on screen and moves on it's own, but doesn't turn yet
@@ -13,62 +13,68 @@ left = (-1, 0)
 right = (1, 0)
 pygame.display.set_caption("Snake")
 screen = pygame.display.set_mode((screenWidth, screenHeight))
- 
+
+
 class Snake():
     def __init__(self):
         self.length = 1
-        self.color = (102, 205, 0) # green
-        self.location = [310, 230] #lista
+        self.color = (102, 205, 0)  # green
+        self.location = [310, 230]  # lista
 
     def head_location(self):
-        return self.location[0] # width, so horizontal
+        return self.location[0]  # width, so horizontal
 
-    #def turn(self):
-        # Jos käärme on vain 1 pituinen, se voi kääntyä mihin tahansa suuntaan. Jos se on isompi niin se voi kääntyä 3 suuntaan 
+    # def turn(self):
+        # Jos käärme on vain 1 pituinen, se voi kääntyä mihin tahansa suuntaan. Jos se on isompi niin se voi kääntyä 3 suuntaan
         # eli ei ns taaksepäin, koska osa käärmeestä on jo takana eli se ei voi mennä itsensä päälle.
-        #if self.length == 1:
+        # if self.length == 1:
         #    pass
-        #else:
+        # else:
         #    pass
 
-    #def grow(self):
+    # def grow(self):
     #    pass
 
     def draw_snake(self, x, y):
-        pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20)) # 20 is the size of the snake, x & y the location
+        # 20 is the size of the snake, x & y the location
+        pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20))
 
     def die(self):
         # Game over window
         pygame.init()
-        self.font = pygame.font.SysFont("Candara" , 24)
-        self.bigfont = pygame.font.SysFont("Candara" , 36)
+        self.font = pygame.font.SysFont("Candara", 24)
+        self.bigfont = pygame.font.SysFont("Candara", 36)
         screen = pygame.display.set_mode((screenWidth, screenHeight))
-        screen.fill((255,248,220)) # cream white
-        pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 250)) # color black
-        gameOver = self.bigfont.render("Game Over", True, (255,97,3))
+        screen.fill((255, 248, 220))  # cream white
+        pygame.draw.rect(screen, (0, 0, 0),
+                         (220, 100, 200, 250))  # color black
+        gameOver = self.bigfont.render("Game Over", True, (255, 97, 3))
         screen.blit(gameOver, (250, 130))
-        points = self.font.render("Points: ", True, (255,248,220))
+        points = self.font.render("Points: ", True, (255, 248, 220))
         screen.blit(points, (275, 175))
-        time = self.font.render("Time: ", True, (255,248,220))
+        time = self.font.render("Time: ", True, (255, 248, 220))
         screen.blit(time, (275, 215))
-        highscore = self.font.render("Highscore: ", True, (255,248,220)) # cream white
+        highscore = self.font.render(
+            "Highscore: ", True, (255, 248, 220))  # cream white
         # lisää highscore pisteet edelliseen
         screen.blit(highscore, (275, 255))
-        playAgain = self.font.render("Play Again", True, (255,248,220)) # cream white
+        playAgain = self.font.render(
+            "Play Again", True, (255, 248, 220))  # cream white
         screen.blit(playAgain, (275, 295))
         # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
         # reset snake to original values in case of new game
         self.length = 1
-        self.location = [(screenWidth/2), (screenHeight/2)] #lista
+        self.location = [(screenWidth/2), (screenHeight/2)]  # lista
         self.direction = random.choice([up, down, left, right])
 
-#class Food():
+# class Food():
 #    def __init__():
 #        pass
 
 #    def location():
 #        pass
+
 
 def main():
     pygame.init()
@@ -80,7 +86,7 @@ def main():
         for tapahtuma in pygame.event.get():
             if tapahtuma.type == pygame.QUIT:
                 exit()
-        screen.fill((255,248,220)) # cream white
+        screen.fill((255, 248, 220))  # cream white
         Snake().draw_snake(x, y)
         pygame.display.flip()
         x += 1
@@ -89,5 +95,5 @@ def main():
         clock.tick(60)
     Snake().die()
 
+
 main()
-    

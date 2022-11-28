@@ -2,6 +2,7 @@ import unittest
 import ohtekoodi
 from ohtekoodi import Snake
 
+
 class TestSnake(unittest.TestCase):
     def setUp(self):
         self.length = Snake().length

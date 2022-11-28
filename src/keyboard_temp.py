@@ -1,6 +1,6 @@
-    def keyboard(self):
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.KEYDOWN:
+ def keyboard(self):
+      for tapahtuma in pygame.event.get():
+           if tapahtuma.type == pygame.KEYDOWN:
                 if tapahtuma.key == pygame.K_UP:
                     self.turn(up)
                 if tapahtuma.key == pygame.K_DOWN:
