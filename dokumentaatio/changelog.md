@@ -6,3 +6,5 @@
 - Lisätty vain vähän testejä
 ### Viikko 4
 - invoke komennot saatu toimimaan
+- game over ikkuna ilmestyy kun käärme kuolee
+- play again nappula game over ikkunassa toimii
