@@ -7,4 +7,4 @@
  | 22.11 | 0,5 | testihakemiston ja testitiedoston luonti ja parin testin tekeminen
  | 26.11 | 0,5 | invoke komennon/komentojen toiminta, README.md tiedoston muokkaus
  | 28.11 | x | pylintin ja formatoinnin asennus, 
- | yht | 7,5
+ | yht. | 7,5
