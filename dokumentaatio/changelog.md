@@ -5,6 +5,6 @@
 - Käärme kuolee, kun se osuu seinään
 - Lisätty vain vähän testejä
 ### Viikko 4
-- invoke komennot saatu toimimaan
-- game over ikkuna ilmestyy kun käärme kuolee
-- play again nappula game over ikkunassa toimii
+- Invoke komennot saatu toimimaan
+- Game over ikkuna ilmestyy, kun käärme kuolee
+- Play again nappula game over ikkunassa toimii
