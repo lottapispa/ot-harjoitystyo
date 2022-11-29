@@ -4,7 +4,7 @@
 
 ```mermaid
 classDiagram
-      Global variables{
+      class Global variables{
       +int screenWidth
       +int screenHeight
       +tuple up
