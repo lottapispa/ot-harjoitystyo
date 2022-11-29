@@ -6,35 +6,35 @@
 classDiagram
       Global variables{
       +int screenWidth
-      int screenHeight
-      tuple up
-      tuple down
-      tuple left
-      tuple right
-      screen
+      +int screenHeight
+      +tuple up
+      +tuple down
+      +tuple left
+      +tuple right
+      +screen
       }
       class Snake{
-      int length
-      tuple color
-      list location
-      tuple direction
-      int points
-      head_location()
-      draw_snake()
-      turn()
-      move()
-      keyboard()
-      die()
-      reset()
+      +int length
+      +tuple color
+      +list location
+      +tuple direction
+      +int points
+      +head_location()
+      +draw_snake()
+      +turn()
+      +move()
+      +keyboard()
+      +die()
+      +reset()
       }
       class Food{
-      int size
-      tuple color
-      tuple location
-      random_location()
-      draw_food()
-      eating()
+      +int size
+      +tuple color
+      +tuple location
+      +random_location()
+      +draw_food()
+      +eating()
       }
       Main{
-      main()
+      +main()
       }
