@@ -35,6 +35,6 @@ classDiagram
       +draw_food()
       +eating()
       }
-      Main{
+      class Main{
       +main()
       }
