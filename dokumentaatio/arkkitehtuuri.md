@@ -4,11 +4,11 @@
 
 ```mermaid
 classDiagram
-      Global_variables <|-- Main
-      Global_variables <|-- Snake
-      Global_variables <|-- Food
-      Snake <|-- Main
-      Food <|-- Main
+      Main <|-- Global_variables
+      Snake <|--Global_variables
+      Food <|-- Global_variables
+      Main <|-- Snake
+      Main <|-- Food
       class Global_variables{
       +int screenWidth
       +int screenHeight
