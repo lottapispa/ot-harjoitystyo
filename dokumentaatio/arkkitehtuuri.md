@@ -4,7 +4,10 @@
 
 ```mermaid
 classDiagram
-      class Global variables{
+      Global_variables <|-- Main
+      Snake <|-- Main
+      Food <|-- Main
+      class Global_variables{
       +int screenWidth
       +int screenHeight
       +tuple up
