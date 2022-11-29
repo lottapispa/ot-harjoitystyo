@@ -1,27 +1,30 @@
 import random
+import sys
 import pygame
 
 pygame.init()
 # Global variables
-screenWidth = 640
-screenHeight = 480
+screen_width = 640
+screen_height = 480
 up = (0, -1)
 down = (0, 1)
 left = (-1, 0)
 right = (1, 0)
 pygame.display.set_caption("Snake")
-screen = pygame.display.set_mode((screenWidth, screenHeight))
+screen = pygame.display.set_mode((screen_width, screen_height))
 
 class Snake():
     def __init__(self):
         self.length = 1
-        self.color = (102, 205, 0)  # green
-        self.location = [((screenWidth/2), (screenHeight/2))]  # lista
+        self.color = (102, 205, 0) # green
+        self.location = [((screen_width/2), (screen_height/2))] # lista
         self.direction = random.choice([up,down,left,right])
         self.points = 0
+        self.font = pygame.font.SysFont("Candara", 24)
+        self.bigfont = pygame.font.SysFont("Candara", 36)
 
     def head_location(self):
-        return self.location[0] 
+        return self.location[0]
 
     def draw_snake(self, x, y):
         # 20 is the size of the snake, x & y the location
@@ -45,7 +48,7 @@ class Snake():
 
     def move(self):
         pass
-        
+
     def keyboard(self):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -58,19 +61,16 @@ class Snake():
                 if event.key == pygame.K_RIGHT:
                     self.turn_right()
             if event.type == pygame.QUIT:
-                exit()
+                sys.exit()
 
     def die(self):
         # Game over window
         pygame.init()
-        self.font = pygame.font.SysFont("Candara", 24)
-        self.bigfont = pygame.font.SysFont("Candara", 36)
-        screen = pygame.display.set_mode((screenWidth, screenHeight))
         screen.fill((255, 248, 220))  # cream white
         pygame.draw.rect(screen, (0, 0, 0),
                          (220, 100, 200, 290))  # color black
-        gameOver = self.bigfont.render("Game Over", True, (255, 97, 3))
-        screen.blit(gameOver, (250, 130))
+        game_over = self.bigfont.render("Game Over", True, (255, 97, 3))
+        screen.blit(game_over, (250, 130))
         points = self.font.render("Points: ", True, (255, 248, 220))
         screen.blit(points, (275, 175))
         time = self.font.render("Time: ", True, (255, 248, 220))
@@ -79,18 +79,18 @@ class Snake():
             "Highscore: ", True, (255, 248, 220))  # cream white
         # lisää highscore pisteet edelliseen
         screen.blit(highscore, (275, 255))
-        playAgain = self.font.render(
+        play_again = self.font.render(
             "Play Again", True, (255, 248, 220))  # cream white
-        screen.blit(playAgain, (275, 295))
-        quitGame = self.font.render(
+        screen.blit(play_again, (275, 295))
+        quit_game = self.font.render(
             "Quit Game", True, (255, 248, 220))  # cream white
-        screen.blit(quitGame, (275, 335))
+        screen.blit(quit_game, (275, 335))
         # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    exit()
+                    sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     mouse = pygame.mouse.get_pos()
                     if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
@@ -98,12 +98,12 @@ class Snake():
                         main()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
-                        exit()
+                        sys.exit()
 
     def reset(self):
         # reset snake to original values for new game
         self.length = 1
-        self.location = [(screenWidth/2), (screenHeight/2)]  # lista
+        self.location = [(screen_width/2), (screen_height/2)]  # lista
         self.direction = random.choice([up, down, left, right])
         self.points = 0
 
@@ -133,14 +133,13 @@ class Food():
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((screenWidth, screenHeight))
-    x = (screenWidth/2)
-    y = (screenHeight/2)
+    x = (screen_width/2)
+    y = (screen_height/2)
     clock = pygame.time.Clock()
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                exit()
+                sys.exit()
         screen.fill((255, 248, 220))  # cream white
         Snake().draw_snake(x, y)
         pygame.display.flip()
