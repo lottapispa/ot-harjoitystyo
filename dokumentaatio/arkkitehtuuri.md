@@ -5,6 +5,8 @@
 ```mermaid
 classDiagram
       Global_variables <|-- Main
+      Global_variables <|-- Snake
+      Global_variables <|-- Food
       Snake <|-- Main
       Food <|-- Main
       class Global_variables{
