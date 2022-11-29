@@ -47,17 +47,17 @@ class Snake():
         pass
         
     def keyboard(self):
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.KEYDOWN:
-                if tapahtuma.key == pygame.K_UP:
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_UP:
                     self.turn_up()
-                if tapahtuma.key == pygame.K_DOWN:
+                if event.key == pygame.K_DOWN:
                     self.turn_down()
-                if tapahtuma.key == pygame.K_LEFT:
+                if event.key == pygame.K_LEFT:
                     self.turn_left()
-                if tapahtuma.key == pygame.K_RIGHT:
+                if event.key == pygame.K_RIGHT:
                     self.turn_right()
-            if tapahtuma.type == pygame.QUIT:
+            if event.type == pygame.QUIT:
                 exit()
 
     def die(self):
@@ -68,7 +68,7 @@ class Snake():
         screen = pygame.display.set_mode((screenWidth, screenHeight))
         screen.fill((255, 248, 220))  # cream white
         pygame.draw.rect(screen, (0, 0, 0),
-                         (220, 100, 200, 250))  # color black
+                         (220, 100, 200, 290))  # color black
         gameOver = self.bigfont.render("Game Over", True, (255, 97, 3))
         screen.blit(gameOver, (250, 130))
         points = self.font.render("Points: ", True, (255, 248, 220))
@@ -82,17 +82,23 @@ class Snake():
         playAgain = self.font.render(
             "Play Again", True, (255, 248, 220))  # cream white
         screen.blit(playAgain, (275, 295))
+        quitGame = self.font.render(
+            "Quit Game", True, (255, 248, 220))  # cream white
+        screen.blit(quitGame, (275, 335))
         # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
         while True:
-            for tapahtuma in pygame.event.get():
-                if tapahtuma.type == pygame.QUIT:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
                     exit()
-                if tapahtuma.type == pygame.MOUSEBUTTONDOWN:
+                if event.type == pygame.MOUSEBUTTONDOWN:
                     mouse = pygame.mouse.get_pos()
                     if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
                         self.reset()
                         main()
+                if event.type == pygame.MOUSEBUTTONDOWN:
+                    if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
+                        exit()
 
     def reset(self):
         # reset snake to original values for new game
@@ -132,8 +138,8 @@ def main():
     y = (screenHeight/2)
     clock = pygame.time.Clock()
     while True:
-        for tapahtuma in pygame.event.get():
-            if tapahtuma.type == pygame.QUIT:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
                 exit()
         screen.fill((255, 248, 220))  # cream white
         Snake().draw_snake(x, y)
