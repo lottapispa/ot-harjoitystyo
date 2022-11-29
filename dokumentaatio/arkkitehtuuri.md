@@ -36,4 +36,5 @@ classDiagram
       eating()
       }
       Main{
+      main()
       }
