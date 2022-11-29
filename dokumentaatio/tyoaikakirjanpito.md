@@ -7,5 +7,5 @@
  | 22.11 | 0,5 | testihakemiston ja testitiedoston luonti ja parin testin tekeminen
  | 26.11 | 0,5 | invoke komennon/komentojen toiminta, README.md tiedoston muokkaus
  | 28.11 | 4,25 | pylintin ja formatoinnin asennus, food luokan muokkaus, keyboard funktion ja turn funktioiden tekeminen, yleisesti koodin paranteleminen
- | 29.11 | 5 | yleisesti koodin paranteleminen, arkkitehtuuri.mdn ja luokkakaavion tekeminen, food luokan tekeminen, uusia funktioita
- | yht. | 16,75
+ | 29.11 | 5,25 | yleisesti koodin paranteleminen, arkkitehtuuri.mdn ja luokkakaavion tekeminen, food luokan tekeminen, uusia funktioita
+ | yht. | 17
