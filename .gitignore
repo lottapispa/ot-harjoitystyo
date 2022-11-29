@@ -5,3 +5,4 @@ htmlcov
 # temporary files
 src/gameover_temp.py
 src/keyboard_temp.py
+src/temp.py

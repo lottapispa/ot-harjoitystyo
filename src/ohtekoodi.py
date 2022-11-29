@@ -1,8 +1,7 @@
 import random
 import pygame
 
-# switch the word tapahtuma to event or ev
-
+pygame.init()
 # Global variables
 screenWidth = 640
 screenHeight = 480
@@ -13,13 +12,13 @@ right = (1, 0)
 pygame.display.set_caption("Snake")
 screen = pygame.display.set_mode((screenWidth, screenHeight))
 
-
 class Snake():
     def __init__(self):
         self.length = 1
         self.color = (102, 205, 0)  # green
-        self.location = [(screenWidth/2), (screenHeight/2)]  # lista
+        self.location = [((screenWidth/2), (screenHeight/2))]  # lista
         self.direction = random.choice([up,down,left,right])
+        self.points = 0
 
     def head_location(self):
         return self.location[0] 
@@ -27,9 +26,6 @@ class Snake():
     def draw_snake(self, x, y):
         # 20 is the size of the snake, x & y the location
         pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20))
-
-    # Jos käärme on vain 1 pituinen, se voi kääntyä mihin tahansa suuntaan. Jos se on isompi niin se voi kääntyä 3 suuntaan
-    # eli ei taaksepäin, koska se ei voi mennä itsensä päälle.
 
     def turn_up(self):
         if self.direction != down or self.length == 1:
@@ -63,9 +59,6 @@ class Snake():
                     self.turn_right()
             if tapahtuma.type == pygame.QUIT:
                 exit()
-
-    # def grow(self):
-    #    pass
 
     def die(self):
         # Game over window
@@ -106,6 +99,7 @@ class Snake():
         self.length = 1
         self.location = [(screenWidth/2), (screenHeight/2)]  # lista
         self.direction = random.choice([up, down, left, right])
+        self.points = 0
 
 class Food():
     def __init__(self):
@@ -115,7 +109,7 @@ class Food():
         self.random_location()
 
     def random_location(self):
-        self.location = (random.randint(0+self.size+3, 640-self.size-3), random.randint(5+self.size+3, 480-self.size-3))
+        self.location = (random.randint(3, 640-3), random.randint(3, 480-3))
 
     def draw_food(self):
         pygame.draw.circle(screen, self.color, self.location, self.size)
@@ -124,15 +118,12 @@ class Food():
     #def frequency(self):
     #    pass
 
-class Score():
-    def __init__(self):
-        self.points = 0
-        self.count = 0
-
-    #def eating(self):
-    # check if snake and food collide and count food eaten
-    #    pass
-
+    # checks if snake and food collide and add points
+    def eating(self):
+        if Snake().head_location() == self.location:
+            Snake().length += 1
+            Snake().points += 1
+            self.random_location()
 
 def main():
     pygame.init()
@@ -145,7 +136,7 @@ def main():
             if tapahtuma.type == pygame.QUIT:
                 exit()
         screen.fill((255, 248, 220))  # cream white
-        Snake().draw_snake(x,y)
+        Snake().draw_snake(x, y)
         pygame.display.flip()
         x += 1
         if x + 20 >= 640:
