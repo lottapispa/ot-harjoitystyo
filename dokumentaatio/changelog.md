@@ -9,4 +9,4 @@
 ### Viikko 4
 - Invoke komennot start, test ja lint saatu toimimaan
 - Game over ikkuna ilmestyy, kun käärme kuolee
-- Play again nappula game over ikkunassa toimii
+- Play again ja quit game nappulat game over ikkunassa toimii
