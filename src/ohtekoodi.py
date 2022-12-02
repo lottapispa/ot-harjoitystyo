@@ -31,24 +31,42 @@ class Snake():
         pygame.draw.rect(screen, self.color, pygame.Rect(x, y, 20, 20))
 
     def turn_up(self):
-        if self.direction != down or self.length == 1:
+        if self.direction != down or self.direction != up or self.length == 1:
             self.direction = up
+            self.move()
 
     def turn_down(self):
-        if self.direction != up or self.length == 1:
+        if self.direction != up or self.direction != down or self.length == 1:
             self.direction = down
+            self.move()
 
     def turn_left(self):
-        if self.direction != right or self.length == 1:
+        if self.direction != right or self.direction != left or self.length == 1:
             self.direction = left
+            self.move()
 
     def turn_right(self):
-        if self.direction != left or self.length == 1:
+        if self.direction != left or self.direction != right or self.length == 1:
             self.direction = right
+            self.move()
 
     def move(self):
-        pass
-
+        #up = (0, -1)
+        #down = (0, 1)
+        #left = (-1, 0)
+        #right = (1, 0)
+        self.current = self.head_location()
+        x = self.direction[0]
+        y = self.direction[1]
+        if self.direction == up or self.direction == down:
+            self.current[1] += y
+        elif self.direction == left or self.direction == right:
+            self.current[0] += x
+        # jos liikkuessa käärmeen pää osuu sen vartaloon, se kuolee
+        if self.current in self.location[2:]:
+            self.die()
+        pygame.display.flip()
+        
     def keyboard(self):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
@@ -124,7 +142,7 @@ class Food():
     #def frequency(self):
     #    pass
 
-    # checks if snake and food collide and add points
+    # checks if snake and food collide and add length & points
     def eating(self):
         if Snake().head_location() == self.location:
             Snake().length += 1
