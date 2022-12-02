@@ -51,10 +51,6 @@ class Snake():
             self.move()
 
     def move(self):
-        #up = (0, -1)
-        #down = (0, 1)
-        #left = (-1, 0)
-        #right = (1, 0)
         self.current = self.head_location()
         x = self.direction[0]
         y = self.direction[1]
@@ -66,7 +62,7 @@ class Snake():
         if self.current in self.location[2:]:
             self.die()
         pygame.display.flip()
-        
+
     def keyboard(self):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
