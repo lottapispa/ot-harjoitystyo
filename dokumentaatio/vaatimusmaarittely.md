@@ -3,7 +3,7 @@ Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä py
 ## Toiminnallisuus
 - Käärme liikkuu itsestään ✓
 - Käärmeen suuntaa voi kääntää nuolinäppäimillä ✓
-- Käärmettä ei voi kääntää taaksepäin, jos se on pidempi kuin 1
+- Käärmettä ei voi kääntää taaksepäin (ns. itsensä päälle), jos se on pidempi kuin 1
 - Peliruudulle ilmestyy ruokaa ✓
 - Ruoka pysyy ruudulla kunnes käärme syö sen ✓
 - Käärme kasvaa ja kerää pisteitä, kun se syö ✓
