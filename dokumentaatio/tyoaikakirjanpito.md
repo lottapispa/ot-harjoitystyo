@@ -11,4 +11,4 @@
  | 2.12 | 0,5 | muutoksia koodin move funktioon
  | 6.12 | 1,5 | muutoksia koodin move ja main funktioon
  | 9.12 | 3,5 | muutoksia koodin move, main ja eating funktioihin, yleisesti koodin paranteleminen, game over ikkunan muokkaus
- | yht. | 22,5
+ | yht. | 23,5
