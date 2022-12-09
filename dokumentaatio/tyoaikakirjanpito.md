@@ -10,5 +10,5 @@
  | 29.11 | 6,25 | yleisesti koodin paranteleminen, arkkitehtuuri.mdn ja luokkakaavion tekeminen, food luokan tekeminen, uusia funktioita, game over ikkunan muokkaus, pylint tarkistuksia ja korjauksia
  | 2.12 | 0,5 | muutoksia koodin move funktioon
  | 6.12 | 1,5 | muutoksia koodin move ja main funktioon
- | 9.12 | 1,5 | muutoksia koodin move ja main funktioon, käärme saatu liikkumaan
- | yht. | 21,5
+ | 9.12 | 3,25 | muutoksia koodin move ja main funktioon, yleisesti koodin paranteleminen, game over ikkunan muokkaus
+ | yht. | 22,25
