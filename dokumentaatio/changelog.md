@@ -13,6 +13,9 @@
 ### Viikko 5
 - 0
 ### Viikko 6
-- Snake saatu liikkumaan nuolinäppäimillä
+- Snake on saatu liikkumaan nuolinäppäimillä
 - Ruokaa ilmestyy ruudulle
 - Main funktio saatu toimimaan oikein
+- Käärme kasvaa, kun se syö ruokaa 
+- Kun ruoka on syöty se katoaa ja uusi tulee sen tilalle
+- Käärme kuolee, kun se osuu itseensä
