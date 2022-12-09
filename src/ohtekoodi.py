@@ -19,11 +19,18 @@ class Snake():
         self.location = [((screen_width/2), (screen_height/2))] # lista
         self.direction = random.choice([up,down,left,right])
         self.points = 0
+        self.highscore = 0
         self.font = pygame.font.SysFont("Candara", 24)
         self.bigfont = pygame.font.SysFont("Candara", 36)
+        self.duration = 0 # how long the game lasts
 
     def head_location(self):
         return self.location[0]
+
+    def head_rect(self):
+        self.head = self.location[0]
+        self.rect = pygame.Rect((self.head[0], self.head[1]), (20, 20))
+        return self.rect
 
     def draw_snake(self, screen):
         for location in self.location:
@@ -58,11 +65,11 @@ class Snake():
         # jos liikkuessa käärmeen pää osuu sen vartaloon tai seinään, se kuolee
         if len(self.location) > 2 and self.new_tuple in self.location[2:]:
             self.die()
-        elif self.new_tuple[0] + 20 >= 640 or self.new_tuple[0] < 0 or self.new_tuple[1] + 20 >= 480 or self.new_tuple[1] < 0:
+        elif self.new_tuple[0] + 20 > 640 or self.new_tuple[0] < 0 or self.new_tuple[1] + 20 > 480 or self.new_tuple[1] < 0:
             self.die()
         else:
             self.location.insert(0, self.new_tuple)
-            if len(self.location) >= self.length:
+            if len(self.location) > self.length:
                 self.location.pop()
 
     def keyboard(self):
@@ -88,12 +95,12 @@ class Snake():
                          (220, 100, 200, 290))  # color black
         game_over = self.bigfont.render("Game Over", True, (255, 97, 3))
         screen.blit(game_over, (250, 130))
-        points = self.font.render("Points: ", True, (255, 248, 220))
+        points = self.font.render(f"Points: {self.points}", True, (255, 248, 220))
         screen.blit(points, (275, 175))
         time = self.font.render("Time: ", True, (255, 248, 220))
         screen.blit(time, (275, 215))
         highscore = self.font.render(
-            "Highscore: ", True, (255, 248, 220))  # cream white
+            f"Highscore: {self.highscore}", True, (255, 248, 220))  # cream white
         # lisää highscore pisteet edelliseen
         screen.blit(highscore, (275, 255))
         play_again = self.font.render(
@@ -123,13 +130,14 @@ class Snake():
         self.location = [((screen_width/2), (screen_height/2))]  # lista
         self.direction = random.choice([up, down, left, right])
         self.points = 0
+        self.duration = 0
 
 class Food():
     def __init__(self):
         self.snake = Snake()
         self.size = 10 # radius
         self.color = (139,69,19)
-        self.location = (0,0)
+        self.location = (0,0) # center point of circle
         self.random_location()
 
     def random_location(self):
@@ -144,21 +152,27 @@ class Food():
 
     # checks if snake and food collide and add length & points
     def eating(self):
+        #if pygame.Rect.collidepoint(self.snake.head_rect(), self.location) == True:
         if self.snake.head_location() == self.location:
             self.snake.length += 1
             self.snake.points += 1
+            if self.snake.points > self.snake.highscore:
+                self.snake.highscore = self.snake.points
             self.random_location()
 
 def main():
     pygame.init()
     screen = pygame.display.set_mode((screen_width, screen_height))
-    screen.fill((255, 248, 220))  # cream white
     snake = Snake()
+    food = Food()
     clock = pygame.time.Clock()
     while True:
         snake.keyboard()
+        screen.fill((255, 248, 220))  # cream white
         snake.move()
         snake.draw_snake(screen)
+        food.draw_food(screen)
+        food.eating()
         pygame.display.flip()
         clock.tick(10)
 
