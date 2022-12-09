@@ -13,6 +13,4 @@ Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä py
 
 ## Mahdollisia muita toiminnallisuuksia
 - Peliruudulla, jos käärme osuu seinään se jatkaa toisen puolen seinästä.
-- Käyttäjärooli: Pelaaja voi tehdä käyttäjän, millä kirjaantuneena, pelien tulokset voivat tallentua top 5 highscore taulukkoon.
-- Pelissä on etusivu, missä on play nappi ja voi siirtyä highscore taulukkoon.
 - Käärme liikkuu sitä nopeammin mitä enemmän se syö 
