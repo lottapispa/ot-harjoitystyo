@@ -16,6 +16,6 @@
 - Snake on saatu liikkumaan nuolinäppäimillä
 - Ruokaa ilmestyy ruudulle
 - Main funktio saatu toimimaan oikein
-- Käärme kasvaa, kun se syö ruokaa 
+- Käärme kasvaa ja peli kerää pisteitä, kun käärme syö ruokaa 
 - Kun ruoka on syöty se katoaa ja uusi tulee sen tilalle
 - Käärme kuolee, kun se osuu itseensä
