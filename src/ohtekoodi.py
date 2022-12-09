@@ -33,8 +33,14 @@ class Snake():
         return self.rect
 
     def draw_snake(self, screen):
+        self.counter = 0
         for location in self.location:
-            pygame.draw.rect(screen, self.color, pygame.Rect((location[0], location[1]), (20, 20)))
+            if self.counter == 0:
+                pygame.draw.rect(screen, self.color, pygame.Rect((location[0], location[1]), (20, 20)))
+                pygame.draw.rect(screen, (0, 0, 0), pygame.Rect((location[0], location[1]), (20, 20)), 1)
+            else:
+                pygame.draw.rect(screen, self.color, pygame.Rect((location[0], location[1]), (20, 20)))
+            self.counter += 1
 
     def turn_up(self):
         if self.direction != down or self.direction != up or self.length == 1:
@@ -56,19 +62,18 @@ class Snake():
         self.current = self.head_location()
         x = self.direction[0]
         y = self.direction[1]
-        # self.new_tuple on uusi head_location
         if self.direction == up or self.direction == down:
-            self.new_tuple = (self.current[0], self.current[1] + (step * y))
+            self.new_head = (self.current[0], self.current[1] + (step * y))
         elif self.direction == left or self.direction == right:
-            self.new_tuple = (self.current[0] + (step * x), self.current[1])
+            self.new_head = (self.current[0] + (step * x), self.current[1])
         # jos liikkuessa käärmeen pää osuu sen vartaloon tai seinään, se kuolee
-        if len(self.location) > 2 and self.new_tuple in self.location[2:]:
+        if len(self.location) > 2 and self.new_head in self.location[2:]:
             self.die()
-        elif self.new_tuple[0] + 20 > 640 or self.new_tuple[0] < 0 or self.new_tuple[1] + 20 > 480 or self.new_tuple[1] < 0:
+        elif self.new_head[0] + 20 > 640 or self.new_head[0] < 0 or self.new_head[1] + 20 > 480 or self.new_head[1] < 0:
             self.die()
         # lisätään uusi ruutu käärme listaan ja poistetaan lopusta yksi ruutu
         else:
-            self.location.insert(0, self.new_tuple)
+            self.location.insert(0, self.new_head)
             if len(self.location) > self.length:
                 self.location.pop()
 
@@ -143,11 +148,6 @@ class Food():
     def draw_food(self, screen):
         pygame.draw.circle(screen, self.color, self.location, self.size)
 
-    # how often does food show up on screen or does it disappear after a time
-    #def frequency(self):
-    #    pass
-
-    # checks if snake and food collide and add length & points
     def eating(self, snake):
         if pygame.Rect.collidepoint(snake.head_rect(), self.location) == True:
             snake.length += 1
