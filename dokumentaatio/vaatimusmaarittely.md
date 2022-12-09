@@ -16,3 +16,4 @@ Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä py
 ## Mahdollisia muita toiminnallisuuksia
 - Peliruudulla, jos käärme osuu seinään se jatkaa toisen puolen seinästä.
 - Käärme liikkuu sitä nopeammin mitä enemmän se syö 
+- Käärmeen pää on erilainen sen vartalosta
