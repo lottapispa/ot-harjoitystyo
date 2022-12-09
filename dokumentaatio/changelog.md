@@ -14,3 +14,5 @@
 - 0
 ### Viikko 6
 - Snake saatu liikkumaan nuolinäppäimillä
+- Ruokaa ilmestyy ruudulle
+- Main funktio saatu toimimaan oikein
