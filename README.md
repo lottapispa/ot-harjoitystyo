@@ -9,6 +9,7 @@ Toimii versiolla 3.8 ja uudemmilla
 - [Työaikakirjanpito](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 - [Changelog](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+- [Käyttöohje](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/kayttoohje.md)
 
 ### Komentorivitoiminnot
 #### Ohjelman suorittaminen komennolla:
