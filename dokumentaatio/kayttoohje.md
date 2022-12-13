@@ -2,10 +2,10 @@
 ### Asennus
 #### Riippuvuuksien asennus komennolla:
 `poetry install`
-#### Alustustoimepiteiden suoritus komennolla:
+#### Alustustoimenpiteiden suoritus komennolla:
 `poetry run invoke build`
 ### Pelin käynnistys
-#### Kännistetään komennolla:
+#### Käynnistetään komennolla:
 `poetry run invoke start`
 ### Pelaaminen
 - Käärmettä voi kääntää nuolinäppäimillä.
