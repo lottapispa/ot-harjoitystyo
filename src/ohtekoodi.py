@@ -130,7 +130,7 @@ class Snake():
                     mouse = pygame.mouse.get_pos()
                     if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
                         self.reset()
-                        Game_loop().main()
+                        GameLoop().main()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
                         sys.exit()
