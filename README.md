@@ -12,7 +12,11 @@ Toimii versiolla 3.8 ja uudemmilla
 - [Käyttöohje](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/kayttoohje.md)
 
 ### Komentorivitoiminnot
-#### Ohjelman suorittaminen komennolla:
+#### Riippuvuuksien asennus komennolla:
+`poetry install`
+#### Alustustoimenpiteiden suoritus komennolla:
+`poetry run invoke build`
+#### Ohjelman käynnistäminen komennolla:
 `poetry run invoke start`
 #### Ohjelman testaus komennolla:
 `poetry run invoke test`
