@@ -12,17 +12,17 @@ Toimii versiolla 3.8 ja uudemmilla
 - [Käyttöohje](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/kayttoohje.md)
 
 ### Komentorivitoiminnot
-#### Riippuvuuksien asennus komennolla:
+#### Riippuvuuksien asennus:
 `poetry install`
-#### Alustustoimenpiteiden suoritus komennolla:
+#### Alustustoimenpiteiden suoritus:
 `poetry run invoke build`
-#### Ohjelman käynnistys komennolla:
+#### Ohjelman käynnistys:
 `poetry run invoke start`
-#### Ohjelman testaus komennolla:
+#### Ohjelman testaus:
 `poetry run invoke test`
-#### Ohjelman testikattavuus komennolla:
+#### Ohjelman testikattavuus:
 `poetry run invoke coverage`
-#### Ohjelman testikattavuusraportti komennolla:
+#### Ohjelman testikattavuusraportti:
 `poetry run invoke coverage-report`
 #### Pylint tarkistus:
 `poetry run invoke lint`
