@@ -16,7 +16,7 @@ Toimii versiolla 3.8 ja uudemmilla
 `poetry install`
 #### Alustustoimenpiteiden suoritus komennolla:
 `poetry run invoke build`
-#### Ohjelman käynnistäminen komennolla:
+#### Ohjelman käynnistys komennolla:
 `poetry run invoke start`
 #### Ohjelman testaus komennolla:
 `poetry run invoke test`
