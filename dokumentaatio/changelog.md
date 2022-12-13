@@ -20,3 +20,4 @@
 - Kun ruoka on syöty se katoaa ja uusi tulee sen tilalle
 - Käärme kuolee, kun se osuu itseensä
 - Käärmeen pää on erilainen sen vartalosta
+- Invoke komennot coverage ja coverage-report saatu toimimaan
