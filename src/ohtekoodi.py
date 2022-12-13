@@ -33,6 +33,7 @@ class Snake():
         return self.rect
 
     def draw_snake(self, screen):
+        # draws snake  by drawing a rectangle in every location in list, snake head has a black outline
         self.counter = 0
         for location in self.location:
             if self.counter == 0:
@@ -59,6 +60,7 @@ class Snake():
             self.direction = right
 
     def move(self):
+        # moves snake by adding a new location in list and popping the last location
         self.current = self.head_location()
         x = self.direction[0]
         y = self.direction[1]
@@ -66,12 +68,11 @@ class Snake():
             self.new_head = (self.current[0], self.current[1] + (step * y))
         elif self.direction == left or self.direction == right:
             self.new_head = (self.current[0] + (step * x), self.current[1])
-        # jos liikkuessa käärmeen pää osuu sen vartaloon tai seinään, se kuolee
+        # snake dies if it hits itself or a wall
         if len(self.location) > 2 and self.new_head in self.location[2:]:
             self.die()
         elif self.new_head[0] + 20 > 640 or self.new_head[0] < 0 or self.new_head[1] + 20 > 480 or self.new_head[1] < 0:
             self.die()
-        # lisätään uusi ruutu käärme listaan ja poistetaan lopusta yksi ruutu
         else:
             self.location.insert(0, self.new_head)
             if len(self.location) > self.length:
@@ -92,7 +93,7 @@ class Snake():
                 sys.exit()
 
     def die(self):
-        # Game over window
+        # game over window
         pygame.init()
         screen = pygame.display.set_mode((screen_width, screen_height))
         screen.fill((255, 248, 220))
@@ -113,7 +114,6 @@ class Snake():
         quit_game = self.font.render(
             "Quit Game", True, (255, 248, 220))
         screen.blit(quit_game, (275, 335))
-        # jos hiiri painaa nappia, uusi peli
         pygame.display.flip()
         while True:
             for event in pygame.event.get():
@@ -129,6 +129,7 @@ class Snake():
                         sys.exit()
 
     def reset(self):
+        # resets values for a new game
         self.length = 1
         self.location = [((screen_width/2), (screen_height/2))] 
         self.direction = random.choice([up, down, left, right])
@@ -149,6 +150,7 @@ class Food():
         pygame.draw.circle(screen, self.color, self.location, self.size)
 
     def eating(self, snake):
+        # if snake and food collide close enough, snake grows
         if pygame.Rect.collidepoint(snake.head_rect(), self.location) == True:
             snake.length += 1
             snake.points += 1
