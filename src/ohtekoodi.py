@@ -13,7 +13,9 @@ step = 20 # how much snake moves at once
 pygame.display.set_caption("Snake")
 
 class Snake():
+    """Class that creates and keeps track of snake."""
     def __init__(self):
+        """Class constructor, creates variables."""
         self.length = 1
         self.color = (102, 205, 0)
         self.location = [((screen_width/2), (screen_height/2))]
@@ -25,15 +27,18 @@ class Snake():
         self.duration = 0 # how long the game lasts (not used yet)
 
     def head_location(self):
+        """Returns: location of snake's head"""
         return self.location[0]
 
     def head_rect(self):
+        """Returns: snake's head rectangle"""
         self.head = self.location[0]
         self.rect = pygame.Rect((self.head[0], self.head[1]), (20, 20))
         return self.rect
 
     def draw_snake(self, screen):
-        # draws snake  by drawing a rectangle in every location in list, snake head has a black outline
+        """Draws snake  by drawing a rectangle in every location in list.
+        Snake head has a black outline."""
         self.counter = 0
         for location in self.location:
             if self.counter == 0:
@@ -43,6 +48,7 @@ class Snake():
                 pygame.draw.rect(screen, self.color, pygame.Rect((location[0], location[1]), (20, 20)))
             self.counter += 1
 
+    """These functions are called by the keyboard function and they change the direction variable."""
     def turn_up(self):
         if self.direction != down or self.direction != up or self.length == 1:
             self.direction = up
@@ -60,7 +66,7 @@ class Snake():
             self.direction = right
 
     def move(self):
-        # moves snake by adding a new location in list and popping the last location
+        """Moves snake by adding a new location in list and popping the last location."""
         self.current = self.head_location()
         x = self.direction[0]
         y = self.direction[1]
@@ -93,7 +99,7 @@ class Snake():
                 sys.exit()
 
     def die(self):
-        # game over window
+        """Game over window."""
         pygame.init()
         screen = pygame.display.set_mode((screen_width, screen_height))
         screen.fill((255, 248, 220))
@@ -129,7 +135,7 @@ class Snake():
                         sys.exit()
 
     def reset(self):
-        # resets values for a new game
+        """Resets values for a new game."""
         self.length = 1
         self.location = [((screen_width/2), (screen_height/2))] 
         self.direction = random.choice([up, down, left, right])
@@ -137,20 +143,24 @@ class Snake():
         self.duration = 0
 
 class Food():
+    """Class that creates and keeps track of food"""
     def __init__(self):
+        """Class constructor, creates variables."""
         self.size = 10 # radius
         self.color = (139,69,19)
         self.location = (0,0) # center point of circle
         self.random_location()
 
     def random_location(self):
+        """Assigns random location for food to pop up in."""
         self.location = (random.randint(10, 640-10), random.randint(10, 480-10))
 
     def draw_food(self, screen):
+        """Draws food."""
         pygame.draw.circle(screen, self.color, self.location, self.size)
 
     def eating(self, snake):
-        # if snake and food collide close enough, snake grows
+        """Grows snake and adds points if snake eats food."""
         if pygame.Rect.collidepoint(snake.head_rect(), self.location) == True:
             snake.length += 1
             snake.points += 1
@@ -160,6 +170,7 @@ class Food():
             self.random_location()
 
 def main():
+    """Main loop."""
     pygame.init()
     screen = pygame.display.set_mode((screen_width, screen_height))
     snake = Snake()
