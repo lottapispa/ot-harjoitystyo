@@ -5,12 +5,8 @@ import pygame
 # Global variables
 screen_width = 640
 screen_height = 480
-up = (0, -1)
-down = (0, 1)
-left = (-1, 0)
-right = (1, 0)
-step = 20 # how much snake moves at once
 pygame.display.set_caption("Snake")
+pygame.init()
 
 class Snake():
     """Class that creates and keeps track of snake."""
@@ -19,12 +15,17 @@ class Snake():
         self.length = 1
         self.color = (102, 205, 0)
         self.location = [((screen_width/2), (screen_height/2))]
-        self.direction = random.choice([up,down,left,right])
+        self.up = (0, -1)
+        self.down = (0, 1)
+        self.left = (-1, 0)
+        self.right = (1, 0)
+        self.direction = random.choice([self.up,self.down,self.left,self.right])
         self.points = 0
         self.highscore = 0
         self.font = pygame.font.SysFont("Candara", 24)
         self.bigfont = pygame.font.SysFont("Candara", 36)
-        self.duration = 0 # how long the game lasts (not used yet)
+        self.step = 20 # how much snake moves at once
+        self.duration = 0 # tracks how long the game lasts (not used yet)
 
     def head_location(self):
         """Returns: location of snake's head"""
@@ -50,30 +51,30 @@ class Snake():
 
     """These functions are called by the keyboard function and they change the direction variable."""
     def turn_up(self):
-        if self.direction != down or self.direction != up or self.length == 1:
-            self.direction = up
+        if self.direction != self.down or self.direction != self.up or self.length == 1:
+            self.direction = self.up
 
     def turn_down(self):
-        if self.direction != up or self.direction != down or self.length == 1:
-            self.direction = down
+        if self.direction != self.up or self.direction != self.down or self.length == 1:
+            self.direction = self.down
 
     def turn_left(self):
-        if self.direction != right or self.direction != left or self.length == 1:
-            self.direction = left
+        if self.direction != self.right or self.direction != self.left or self.length == 1:
+            self.direction = self.left
 
     def turn_right(self):
-        if self.direction != left or self.direction != right or self.length == 1:
-            self.direction = right
+        if self.direction != self.left or self.direction != self.right or self.length == 1:
+            self.direction = self.right
 
     def move(self):
         """Moves snake by adding a new location in list and popping the last location."""
         self.current = self.head_location()
         x = self.direction[0]
         y = self.direction[1]
-        if self.direction == up or self.direction == down:
-            self.new_head = (self.current[0], self.current[1] + (step * y))
-        elif self.direction == left or self.direction == right:
-            self.new_head = (self.current[0] + (step * x), self.current[1])
+        if self.direction == self.up or self.direction == self.down:
+            self.new_head = (self.current[0], self.current[1] + (self.step * y))
+        elif self.direction == self.left or self.direction == self.right:
+            self.new_head = (self.current[0] + (self.step * x), self.current[1])
         # snake dies if it hits itself or a wall
         if len(self.location) > 2 and self.new_head in self.location[2:]:
             self.die()
@@ -101,6 +102,7 @@ class Snake():
     def die(self):
         """Game over window."""
         pygame.init()
+        self.die_called = True
         screen = pygame.display.set_mode((screen_width, screen_height))
         screen.fill((255, 248, 220))
         pygame.draw.rect(screen, (0, 0, 0),
@@ -136,9 +138,10 @@ class Snake():
 
     def reset(self):
         """Resets values for a new game."""
+        self.reset_called = True
         self.length = 1
         self.location = [((screen_width/2), (screen_height/2))] 
-        self.direction = random.choice([up, down, left, right])
+        self.direction = random.choice([self.up, self.down, self.left, self.right])
         self.points = 0
         self.duration = 0
 
