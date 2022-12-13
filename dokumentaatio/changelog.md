@@ -21,3 +21,4 @@
 - Käärme kuolee, kun se osuu itseensä
 - Käärmeen pää on erilainen sen vartalosta
 - Invoke komennot coverage ja coverage-report saatu toimimaan
+- Game_loop luokka tehty ja main loop siirretty siihen
