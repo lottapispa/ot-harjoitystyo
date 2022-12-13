@@ -14,8 +14,8 @@ sequenceDiagram
     participant Snake().keyboard()
     participant Snake().turn_up()
     participant Snake().__init__()
-    Player ->> Snake().keyboard(): press up on keyboard
-    Snake().keyboard() ->> Snake().turn_up(): self.turn_up()
+    Player ->> Snake().keyboard(): press "up" on keyboard
+    Snake().keyboard() ->> Snake().turn_up(): turn_up()
     Snake().turn_up() ->> Snake().__init__(): direction = up
 ```
 
