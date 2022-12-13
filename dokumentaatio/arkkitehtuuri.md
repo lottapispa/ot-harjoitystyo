@@ -10,8 +10,8 @@ Kuvataan ohjelman toiminnallisuutta sekvenssikaaviolla
 
 ```mermaid
 sequenceDiagram
-    actor Player
     participant Main
+    actor Player
     participant Snake().keyboard()
     participant Snake().turn_up()
     participant Snake().__init__()
