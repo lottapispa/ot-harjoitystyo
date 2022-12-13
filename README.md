@@ -1,5 +1,5 @@
 # Snake Peli
-Pelin tarkoitus on liikkua käärmeellä ruudulla ja kasvattaa sitä, sekä pysyä hengissä/pelissä niin kauan kuin mahdollista.
+Pelin tarkoitus on liikkua käärmeellä ruudulla ja kasvattaa sitä syömällä ruokaa, sekä pysyä hengissä/pelissä niin kauan kuin mahdollista.
 
 ### Python-versio
 Toimii versiolla 3.8 ja uudemmilla
