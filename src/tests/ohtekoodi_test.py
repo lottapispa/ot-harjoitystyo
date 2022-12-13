@@ -21,6 +21,7 @@ class TestSnake(unittest.TestCase):
         self.font = Snake().font
         self.bigfont = Snake().bigfont
         self.events = Snake().events
+        self.events = Snake().events
 
     def test_correct_length_in_the_beginning(self):
         self.assertEqual(self.length, 1)
