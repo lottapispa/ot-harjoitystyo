@@ -1,6 +1,7 @@
 import random
 import sys
 import pygame
+from keyboard_events import KeyboardEvents
 
 class Snake():
     """Class that creates and keeps track of snake."""
@@ -23,6 +24,7 @@ class Snake():
         self.bigfont = pygame.font.SysFont("Candara", 36)
         self.step = 20 # how much snake moves at once
         self.duration = 0 # tracks how long the game lasts (not used yet)
+        self.events = KeyboardEvents()
 
     def head_location(self):
         """Returns: location of snake's head"""
@@ -83,7 +85,7 @@ class Snake():
                 self.location.pop()
 
     def keyboard(self):
-        for event in pygame.event.get():
+        for event in self.events.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     self.turn_up()
@@ -169,7 +171,7 @@ class Food():
                 snake.highscore = snake.points
             self.random_location()
 
-class Game_loop():
+class GameLoop():
     """Class that has the game's main loop."""
     def __init__(self):
         """Class constructor, creates variables, calls other classes."""
@@ -195,4 +197,4 @@ class Game_loop():
             clock.tick(10)
 
 if __name__ == "__main__":
-    Game_loop().main()
+    GameLoop().main()
