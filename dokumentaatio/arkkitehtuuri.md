@@ -5,7 +5,7 @@ Ohjelmassa on 3 eri luokkaa: Snake, Food ja GameLoop.
 <img width="642" alt="Screenshot 2022-12-13 at 19 31 10" src="https://user-images.githubusercontent.com/101987621/207403505-d0b36808-b6a0-4fba-a187-328311651c6b.png">
 
 ## Toiminnallisuus
-Kuvataan ohjelman toiminnallisuutta sekvenssikaaviolla
+Kuvataan ohjelman toiminnallisuutta sekvenssikaavioilla
 ### Keyboard ja turn funktioiden toiminta:
 
 ```mermaid
@@ -24,5 +24,8 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant Main
-    participant Snake
+    participant Snake().move()
+    participant Snake().__init__()
+    Main ->> Snake().move(): move()
+    nake().move() ->> Snake().__init__(): location = new
 ```
