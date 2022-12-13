@@ -27,5 +27,5 @@ sequenceDiagram
     participant Snake().move()
     participant Snake().__init__()
     Main ->> Snake().move(): move()
-    nake().move() ->> Snake().__init__(): location = new
+    Snake().move() ->> Snake().__init__(): location = new
 ```
