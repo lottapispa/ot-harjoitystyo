@@ -14,13 +14,10 @@ sequenceDiagram
     participant Main
     participant Snake
     participant Snake().keyboard()
-    participant Snake().move()
     participant Snake().turn_up()
     participant Snake().__init__()
-    Main ->> Snake: self.snake.keyboard()
-    Main ->> Snake: self.snake.move()
-    Main ->> Snake: self.snake.draw_snake(screen)
-    Player ->> Main: press up on keyboard
+    Main ->> Snake: snake.keyboard()
+    Player ->> Snake().keyboard(): press up on keyboard
     Main ->> Snake().keyboard(): self.turn_up()
     Snake().turn_up() ->> Snake().__init__(): direction = up
 ```
