@@ -20,7 +20,6 @@ class TestSnake(unittest.TestCase):
         self.points = Snake().points
         self.font = Snake().font
         self.bigfont = Snake().bigfont
-        #self.event = Snake().event
 
     def test_correct_length_in_the_beginning(self):
         self.assertEqual(self.length, 1)
@@ -36,24 +35,22 @@ class TestSnake(unittest.TestCase):
         # points variable is the same size as length variable
         self.assertEqual(self.points+1, self.length)
 
+    # self.direction variable is _ if condition is met
     def test_turn_up(self):
-        # self.direction variable is up if condition is met
-        self.event = Snake().event
+        snake = Snake()
+        self.event = snake.event
         if self.event.key == pygame.K_UP:
             self.assertEqual(self.direction, self.up)
 
     def test_turn_down(self):
-        # self.direction variable is down if condition is met
         if self.event.key == pygame.K_DOWN:
             self.assertEqual(self.direction, self.down)
 
     def test_turn_left(self):
-        # self.direction variable is left if condition is met
         if self.event.key == pygame.K_LEFT:
             self.assertEqual(self.direction, self.left)
 
     def test_turn_right(self):
-        # self.direction variable is right if condition is met
         if self.event.key == pygame.K_RIGHT:
             self.assertEqual(self.direction, self.right)
 

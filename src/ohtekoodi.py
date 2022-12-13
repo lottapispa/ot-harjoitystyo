@@ -2,19 +2,16 @@ import random
 import sys
 import pygame
 
-# Global variables
-screen_width = 640
-screen_height = 480
-pygame.display.set_caption("Snake")
-pygame.init()
-
 class Snake():
     """Class that creates and keeps track of snake."""
     def __init__(self):
         """Class constructor, creates variables."""
+        pygame.init()
         self.length = 1
         self.color = (102, 205, 0)
-        self.location = [((screen_width/2), (screen_height/2))]
+        self.screen_width = 640
+        self.screen_height = 480
+        self.location = [((self.screen_width/2), (self.screen_height/2))]
         self.up = (0, -1)
         self.down = (0, 1)
         self.left = (-1, 0)
@@ -103,7 +100,7 @@ class Snake():
         """Game over window."""
         pygame.init()
         self.die_called = True
-        screen = pygame.display.set_mode((screen_width, screen_height))
+        screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         screen.fill((255, 248, 220))
         pygame.draw.rect(screen, (0, 0, 0),
                          (220, 100, 200, 290))
@@ -131,7 +128,7 @@ class Snake():
                     mouse = pygame.mouse.get_pos()
                     if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
                         self.reset()
-                        main()
+                        Game_loop().main()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
                         sys.exit()
@@ -140,7 +137,7 @@ class Snake():
         """Resets values for a new game."""
         self.reset_called = True
         self.length = 1
-        self.location = [((screen_width/2), (screen_height/2))] 
+        self.location = [((self.screen_width/2), (self.screen_height/2))] 
         self.direction = random.choice([self.up, self.down, self.left, self.right])
         self.points = 0
         self.duration = 0
@@ -172,22 +169,30 @@ class Food():
                 snake.highscore = snake.points
             self.random_location()
 
-def main():
-    """Main loop."""
-    pygame.init()
-    screen = pygame.display.set_mode((screen_width, screen_height))
-    snake = Snake()
-    food = Food()
-    clock = pygame.time.Clock()
-    while True:
-        snake.keyboard()
-        screen.fill((255, 248, 220)) 
-        snake.move()
-        snake.draw_snake(screen)
-        food.draw_food(screen)
-        food.eating(snake)
-        pygame.display.flip()
-        clock.tick(10)
+class Game_loop():
+    """Class that has the game's main loop."""
+    def __init__(self):
+        """Class constructor, creates variables, calls other classes."""
+        self.snake = Snake()
+        self.food = Food()
+        self.screen_width = 640
+        self.screen_height = 480
+        pygame.display.set_caption("Snake")
+
+    def main(self):
+        """Main loop."""
+        pygame.init()
+        screen = pygame.display.set_mode((self.screen_width, self.screen_height))
+        clock = pygame.time.Clock()
+        while True:
+            self.snake.keyboard()
+            screen.fill((255, 248, 220)) 
+            self.snake.move()
+            self.snake.draw_snake(screen)
+            self.food.draw_food(screen)
+            self.food.eating(self.snake)
+            pygame.display.flip()
+            clock.tick(10)
 
 if __name__ == "__main__":
-    main()
+    Game_loop().main()
