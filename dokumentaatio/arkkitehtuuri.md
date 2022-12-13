@@ -12,7 +12,6 @@ Kuvataan ohjelman toiminnallisuutta sekvenssikaaviolla
 sequenceDiagram
     actor Player
     participant Main
-    participant Snake
     participant Snake().keyboard()
     participant Snake().turn_up()
     participant Snake().__init__()
