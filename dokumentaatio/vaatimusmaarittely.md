@@ -14,7 +14,7 @@ Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä py
 - Game over taulussa on pelin kesto, siitä saadut pisteet, highscore ja pelaa uudestaan & quit nappula. (kesto puuttuu)
 - Käärmeen pää on erilainen sen vartalosta ✓
 
-## Mahdollisia lisäominaisuuksia tulevaisuudessa:
+## Mahdollisia lisäominaisuuksia tulevaisuudessa
 - Käärme liikkuu sitä nopeammin mitä enemmän se syö/kasvaa
 - Ruoka pysyy ruudulla vain hetken eli käärmeen pitää syödä se nopeasti
 - Eri väriset tai kokoiset ruoat kasvattaa käärmettä eri verran
