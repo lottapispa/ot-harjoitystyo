@@ -10,7 +10,7 @@ Toimii versiolla 3.8 ja uudemmilla
 - [Changelog](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 - [Käyttöohje](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/kayttoohje.md)
-- [Testausdokumentti][https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/testaus.md)
+- [Testausdokumentti](https://github.com/lottapispa/ot-harjoitystyo/blob/master/dokumentaatio/testaus.md)
 
 ### Komentorivitoiminnot
 #### Riippuvuuksien asennus:
