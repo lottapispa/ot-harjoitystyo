@@ -21,8 +21,6 @@ Toimii versiolla 3.8 ja uudemmilla
 `poetry run invoke start`
 #### Ohjelman testaus:
 `poetry run invoke test`
-#### Ohjelman testikattavuus:
-`poetry run invoke coverage`
 #### Ohjelman testikattavuusraportti:
 `poetry run invoke coverage-report`
 #### Pylint tarkistus:
