@@ -74,9 +74,9 @@ sequenceDiagram
 
 ```mermaid
 sequenceDiagram
-    participant Main
+    participant GameLoop().main()
     participant Snake().move()
     participant Snake().__init__()
-    Main ->> Snake().move(): move()
+    GameLoop().main() ->> Snake().move(): move()
     Snake().move() ->> Snake().__init__(): location = new
 ```
