@@ -5,8 +5,8 @@ Ohjelmassa on 3 eri luokkaa: Snake, Food ja GameLoop.
 
 ```mermaid
 classDiagram
-    Snake -- Main
-    Food -- Main
+    Snake -- GameLoop
+    Food -- GameLoop
     class Snake{
         +int length
         +tuple color
