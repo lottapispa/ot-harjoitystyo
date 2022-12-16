@@ -25,6 +25,8 @@ class Snake():
         self.step = 20 # how much snake moves at once
         self.duration = 0 # tracks how long the game lasts (not used yet)
         self.events = KeyboardEvents()
+        self.die_called = False
+        self.reset_called = False
 
     def head_location(self):
         """Returns: location of snake's head"""
@@ -104,24 +106,32 @@ class Snake():
         self.die_called = True
         screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         screen.fill((255, 248, 220))
-        pygame.draw.rect(screen, (0, 0, 0),
-                         (220, 100, 200, 290))
+        pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 290))
+
+        #texts and blitting them
         game_over = self.bigfont.render("Game Over", True, (255, 97, 3))
         screen.blit(game_over, (250, 130))
+
         points = self.font.render(f"Points: {self.points}", True, (255, 248, 220))
         screen.blit(points, (275, 175))
+
         time = self.font.render("Time: ", True, (255, 248, 220))
         screen.blit(time, (275, 215))
-        highscore = self.font.render(
-            f"Highscore: {self.highscore}", True, (255, 248, 220))
+
+        highscore = self.font.render(f"Highscore: {self.highscore}", True, (255, 248, 220))
         screen.blit(highscore, (275, 255))
-        play_again = self.font.render(
-            "Play Again", True, (255, 248, 220))
+
+        play_again = self.font.render("Play Again", True, (255, 248, 220))
         screen.blit(play_again, (275, 295))
-        quit_game = self.font.render(
-            "Quit Game", True, (255, 248, 220))
+
+        quit_game = self.font.render("Quit Game", True, (255, 248, 220))
         screen.blit(quit_game, (275, 335))
+
         pygame.display.flip()
+        self.gameover_loop()
+
+    def gameover_loop(self):
+        """Game over window's while loop. Making buttons in gameover window work."""
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -186,6 +196,7 @@ class GameLoop():
         pygame.init()
         screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         clock = pygame.time.Clock()
+
         while True:
             self.snake.keyboard()
             screen.fill((255, 248, 220)) 
