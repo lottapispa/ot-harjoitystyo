@@ -44,8 +44,11 @@ classDiagram
         +eating()
     }
     class GameLoop{
+        +snake
+        +food
         +int screen_width
         +int screen_height
+        +events
         +tuple font
         +tuple bigfont
         +keyboard()
