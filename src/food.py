@@ -1,7 +1,7 @@
 import random
 import sys
 import pygame
-from ohtekoodi import Snake
+from snake import Snake
 
 class Food():
     """Class that creates and keeps track of food"""
@@ -25,7 +25,6 @@ class Food():
         if pygame.Rect.collidepoint(snake.head_rect(), self.location) == True:
             snake.length += 1
             snake.points += 1
-            # highscore doesn't work yet, it resets too
             if snake.points > snake.highscore:
                 snake.highscore = snake.points
             self.random_location()

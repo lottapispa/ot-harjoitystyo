@@ -1,7 +1,7 @@
 import unittest
-from ohtekoodi import Snake
-from ohtekoodi import Food
-from ohtekoodi import GameLoop
+from snake import Snake
+from food import Food
+from gameloop import GameLoop
 from keyboard_events import KeyboardEvents
 import random
 import sys

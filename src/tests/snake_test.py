@@ -1,8 +1,8 @@
 import unittest
 #import ohtekoodi
-from ohtekoodi import Snake
-from ohtekoodi import Food
+from snake import Snake
 from keyboard_events import KeyboardEvents
+from gameloop import GameLoop
 import random
 import sys
 import pygame
@@ -18,9 +18,9 @@ class TestSnake(unittest.TestCase):
         self.location = Snake().location
         self.direction = Snake().direction
         self.points = Snake().points
-        self.font = Snake().font
-        self.bigfont = Snake().bigfont
-        self.events = Snake().events
+        self.font = GameLoop().font
+        self.bigfont = GameLoop().bigfont
+        self.events = GameLoop().events
         self.keyboard_events = KeyboardEvents().get()
         self.die_called = Snake().die_called
         self.reset_called = Snake().reset_called
@@ -33,6 +33,7 @@ class TestSnake(unittest.TestCase):
 
     def test_correct_length(self):
         # length variable is the same as len of list self.location
+        # also tests if eating grows the snake
         self.assertEqual(self.length, len(self.location))
 
     def test_correct_points(self):
@@ -69,6 +70,3 @@ class TestSnake(unittest.TestCase):
     def test_resets_when_dies(self):
         if self.die_called:
             self.assertTrue(self.reset_called)
-
-    def eating(self):
-        pass
