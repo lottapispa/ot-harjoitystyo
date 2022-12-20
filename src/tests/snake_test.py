@@ -9,6 +9,7 @@ import pygame
 
 class TestSnake(unittest.TestCase):
     def setUp(self):
+        #snake = Snake()
         self.length = Snake().length
         self.color = Snake().color
         self.up = Snake().up
@@ -18,12 +19,12 @@ class TestSnake(unittest.TestCase):
         self.location = Snake().location
         self.direction = Snake().direction
         self.points = Snake().points
-        self.font = GameLoop().font
-        self.bigfont = GameLoop().bigfont
+        self.highscore = Snake().highscore
         self.events = GameLoop().events
         self.keyboard_events = KeyboardEvents().get()
         self.die_called = Snake().die_called
         self.reset_called = Snake().reset_called
+        self.head_location = Snake().head_location()
 
     def test_correct_length_in_the_beginning(self):
         self.assertEqual(self.length, 1)
@@ -31,14 +32,17 @@ class TestSnake(unittest.TestCase):
     def test_correct_color_in_the_beginning(self):
         self.assertEqual(self.color, (102, 205, 0))
 
-    def test_correct_length(self):
-        # length variable is the same as len of list self.location
-        # also tests if eating grows the snake
-        self.assertEqual(self.length, len(self.location))
-
-    def test_correct_points(self):
+    def test_correct_points_in_the_beginning(self):
         # points variable is the same size as length variable
-        self.assertEqual(self.points+1, self.length)
+        self.assertEqual(self.points, 0)
+
+    def test_correct_highscore_in_the_beginning(self):
+        # points variable is the same size as length variable
+        self.assertEqual(self.highscore, 0)
+
+    def test_head_location(self):
+        self.snake = Snake()
+        self.assertEqual(self.snake.head_location(), self.location[0])
 
     # self.direction variable is _ if condition is met
     def test_turn_up(self):

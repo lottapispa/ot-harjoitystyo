@@ -9,4 +9,16 @@ import pygame
 
 class TestGameLoop(unittest.TestCase):
     def setUp(self):
-        pass
+        self.screen_width = GameLoop().screen_width
+        self.screen_height = GameLoop().screen_height
+        self.font = GameLoop().font
+        self.bigfont = GameLoop().bigfont
+
+    def test_correct_screen(self):
+        self.assertEqual(self.screen_width, 640)
+        self.assertEqual(self.screen_height, 480)
+
+    def correct_fonts(self):
+        # 
+        self.assertEqual(self.font, pygame.font.SysFont("Candara", 24))
+        self.assertEqual(self.bigfont, pygame.font.SysFont("Candara", 36))
