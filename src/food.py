@@ -1,7 +1,5 @@
 import random
-import sys
 import pygame
-from snake import Snake
 
 class Food():
     """Class that creates and keeps track of food"""
@@ -22,7 +20,7 @@ class Food():
 
     def eating(self, snake):
         """Grows snake and adds points if snake eats food."""
-        if pygame.Rect.collidepoint(snake.head_rect(), self.location) == True:
+        if pygame.Rect.collidepoint(snake.head_rect(), self.location) is True:
             snake.length += 1
             snake.points += 1
             if snake.points > snake.highscore:

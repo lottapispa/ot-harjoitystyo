@@ -1,5 +1,4 @@
 import random
-import sys
 import pygame
 
 class Snake():
@@ -40,15 +39,17 @@ class Snake():
         Snake head has a black outline."""
         self.counter = 0
         for location in self.location:
+            self.rect = pygame.Rect((location[0], location[1]), (20, 20))
             if self.counter == 0:
-                pygame.draw.rect(screen, self.color, pygame.Rect((location[0], location[1]), (20, 20)))
-                pygame.draw.rect(screen, (0, 0, 0), pygame.Rect((location[0], location[1]), (20, 20)), 1)
+                pygame.draw.rect(screen, self.color, self.rect)
+                pygame.draw.rect(screen, (0, 0, 0), self.rect, 1)
             else:
-                pygame.draw.rect(screen, self.color, pygame.Rect((location[0], location[1]), (20, 20)))
+                pygame.draw.rect(screen, self.color, self.rect)
             self.counter += 1
 
-    """These functions are called by the keyboard function and they change the direction variable."""
     def turn_up(self):
+        """These turn functions are called by the keyboard function.
+        They change the direction variable."""
         if self.direction != self.down or self.direction != self.up or self.length == 1:
             self.direction = self.up
 
@@ -67,16 +68,18 @@ class Snake():
     def move(self):
         """Moves snake by adding a new location in list and popping the last location."""
         self.current = self.head_location()
-        x = self.direction[0]
-        y = self.direction[1]
-        if self.direction == self.up or self.direction == self.down:
-            self.new_head = (self.current[0], self.current[1] + (self.step * y))
-        elif self.direction == self.left or self.direction == self.right:
-            self.new_head = (self.current[0] + (self.step * x), self.current[1])
+        self.width = self.direction[0]
+        self.height = self.direction[1]
+        if self.direction in (self.up, self.down):
+            self.new_head = (self.current[0], self.current[1] + (self.step * self.height))
+        elif self.direction in (self.left,  self.right):
+            self.new_head = (self.current[0] + (self.step * self.width), self.current[1])
         # snake dies if it hits itself or a wall
         if len(self.location) > 2 and self.new_head in self.location[2:]:
             self.dead = True
-        elif self.new_head[0] + 20 > 640 or self.new_head[0] < 0 or self.new_head[1] + 20 > 480 or self.new_head[1] < 0:
+        elif self.new_head[0] + 20 > 640 or self.new_head[0] < 0:
+            self.dead = True
+        elif self.new_head[1] + 20 > 480 or self.new_head[1] < 0:
             self.dead = True
         else:
             self.location.insert(0, self.new_head)
@@ -87,8 +90,9 @@ class Snake():
         """Resets values for a new game."""
         self.reset_called = True
         self.length = 1
-        self.location = [((self.screen_width/2), (self.screen_height/2))] 
+        self.location = [((self.screen_width/2), (self.screen_height/2))]
         self.direction = random.choice([self.up, self.down, self.left, self.right])
         self.points = 0
         self.duration = 0
         self.dead = False
+        self.die_called = False

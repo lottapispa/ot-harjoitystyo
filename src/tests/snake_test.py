@@ -9,22 +9,23 @@ import pygame
 
 class TestSnake(unittest.TestCase):
     def setUp(self):
-        #snake = Snake()
-        self.length = Snake().length
-        self.color = Snake().color
-        self.up = Snake().up
-        self.down = Snake().down
-        self.left = Snake().left
-        self.right = Snake().right
-        self.location = Snake().location
-        self.direction = Snake().direction
-        self.points = Snake().points
-        self.highscore = Snake().highscore
+        snake = Snake()
+        self.length = snake.length
+        self.color = snake.color
+        self.up = snake.up
+        self.down = snake.down
+        self.left = snake.left
+        self.right = snake.right
+        self.location = snake.location
+        self.direction = snake.direction
+        self.points = snake.points
+        self.highscore = snake.highscore
         self.events = GameLoop().events
         self.keyboard_events = KeyboardEvents().get()
-        self.die_called = Snake().die_called
-        self.reset_called = Snake().reset_called
-        self.head_location = Snake().head_location()
+        self.die_called = snake.die_called
+        self.reset_called = snake.reset_called
+        self.dead = snake.dead
+        self.head_location = snake.head_location()
 
     def test_correct_length_in_the_beginning(self):
         self.assertEqual(self.length, 1)
@@ -44,6 +45,11 @@ class TestSnake(unittest.TestCase):
         self.snake = Snake()
         self.assertEqual(self.snake.head_location(), self.location[0])
 
+    def test_booleans_correct_in_the_beginning(self):
+        self.assertFalse(self.die_called)
+        self.assertFalse(self.reset_called)
+        self.assertFalse(self.dead)
+
     # self.direction variable is _ if condition is met
     def test_turn_up(self):
         if self.keyboard_events == pygame.K_UP:
@@ -61,14 +67,11 @@ class TestSnake(unittest.TestCase):
         if self.keyboard_events == pygame.K_RIGHT:
             self.assertEqual(self.direction, self.right)
 
-    #move to gameloop test?
     def test_dies_when_touches_wall(self):
-        self.head_location = Snake().head_location()
         if self.head_location[0] + 20 > 640 or self.head_location[1] + 20 > 480:
             self.assertTrue(self.die_called)
 
     def test_dies_when_touches_itself(self):
-        self.head_location = Snake().head_location()
         if len(self.location) > 2 and self.head_location in self.location[2:]:
             self.assertTrue(self.die_called)
 

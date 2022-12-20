@@ -1,4 +1,3 @@
-import random
 import sys
 import pygame
 from snake import Snake
@@ -35,7 +34,7 @@ class GameLoop():
     def die(self):
         """Game over window."""
         pygame.init()
-        self.die_called = True
+        self.snake.die_called = True
         screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         screen.fill((255, 248, 220))
         pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 290))
@@ -60,35 +59,36 @@ class GameLoop():
         screen.blit(quit_game, (275, 335))
 
         pygame.display.flip()
-        self.gameover_loop()
+        while True:
+            self.gameover_loop()
 
     def gameover_loop(self):
-        """Game over window's while loop. Making buttons in gameover window work."""
-        while True:
-            for event in self.events.get():
-                if event.type == pygame.QUIT:
+        """Game over window's while loop's content.
+        Makes buttons in gameover window work."""
+        for event in self.events.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse = pygame.mouse.get_pos()
+                if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
+                    self.snake.reset()
+                    self.snake.reset_called  = False
+                    self.main()
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
                     sys.exit()
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    mouse = pygame.mouse.get_pos()
-                    if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
-                        self.snake.reset()
-                        self.snake.reset_called  = False
-                        self.main()
-                if event.type == pygame.MOUSEBUTTONDOWN:
-                    if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
-                        sys.exit()
 
     def main(self):
         """Main loop."""
         pygame.init()
         screen = pygame.display.set_mode((self.screen_width, self.screen_height))
         clock = pygame.time.Clock()
-        
+
         while True:
             if self.snake.dead:
                 self.die()
             self.keyboard()
-            screen.fill((255, 248, 220)) 
+            screen.fill((255, 248, 220))
             self.snake.move()
             self.snake.draw_snake(screen)
             self.food.draw_food(screen)
