@@ -13,4 +13,5 @@
  | 9.12 | 4,25 | muutoksia koodin move, main, eating ja draw_snake funktioihin, yleisesti koodin paranteleminen, game over ikkunan muokkaus
  | 13.12 | 5 | uusi luokka GameLoop, jossa main funktio, testien tekemistä, riippuvuuksien injektoinnnin tekemistä, testikattavuuden toiminta, dokumentaation muokkausta, sekvenssikaavioiden tekemistä
  | 16.12 | 3,5 | rakenteen korjausta, luokat siirretty omiin tiedostoihin, yleisesti koodin paranteleminen, testauksen parantaminen, testausdokumentin luonti, dokumentaation parantaminen
+ | 20.12 | x | testauksen tekemistä, pylint korjauksia, yleisesti koodin paranteleminen
  | yht. | 32,75
