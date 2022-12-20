@@ -61,6 +61,7 @@ class TestSnake(unittest.TestCase):
         if self.keyboard_events == pygame.K_RIGHT:
             self.assertEqual(self.direction, self.right)
 
+    #move to gameloop test?
     def test_dies_when_touches_wall(self):
         self.head_location = Snake().head_location()
         if self.head_location[0] + 20 > 640 or self.head_location[1] + 20 > 480:
