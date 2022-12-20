@@ -22,6 +22,8 @@
 - Käärmeen pää on erilainen sen vartalosta
 - Invoke komennot coverage ja coverage-report saatu toimimaan
 - Game_loop luokka tehty ja main loop siirretty siihen
+- Testaus edistynyt
 ### Viikko 7
 - Luokat omissa tiedostoissaan
 - Highscore toimii oikein
+- Testaus valmis
