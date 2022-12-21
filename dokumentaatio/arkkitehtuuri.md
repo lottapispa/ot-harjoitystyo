@@ -78,8 +78,8 @@ sequenceDiagram
     participant GameLoop().keyboard()
     participant Snake().turn_up()
     participant Snake().__init__()
-    Player ->> GameLoop.keyboard(): press "up" on keyboard
-    Snake().keyboard() ->> Snake().turn_up(): turn_up()
+    Player ->> GameLoop().keyboard(): press "up" on keyboard
+    GameLoop().keyboard() ->> Snake().turn_up(): turn_up()
     Snake().turn_up() ->> Snake().__init__(): direction = up
 ```
 
