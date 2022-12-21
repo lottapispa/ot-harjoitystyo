@@ -12,6 +12,7 @@ class Snake():
         self.location = [((self.screen_proportions[0]/2), (self.screen_proportions[1]/2))]
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
         self.direction = random.choice(list(self.directions.values()))
+        self.counter = 0
         self.step = 20 # how much snake moves at once
         self.duration = 0 # tracks how long the game lasts (not used yet)
         self.dead = False

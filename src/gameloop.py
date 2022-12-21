@@ -16,6 +16,7 @@ class GameLoop():
         self.death  = Death(self.snake, self.score)
         self.screen_proportions = (640, 480)
         pygame.display.set_caption("Snake")
+        self.screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
         self.events = KeyboardEvents()
 
     def keyboard(self):
@@ -35,20 +36,20 @@ class GameLoop():
     def main(self):
         """Main loop."""
         pygame.init()
-        screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
+        #screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
         clock = pygame.time.Clock()
 
         while True:
             if self.snake.dead:
                 self.death.die()
-            if self.death.call_main == True:
+            if self.death.call_main:
                 self.death.call_main = False
                 self.main()
             self.keyboard()
-            screen.fill((255, 248, 220))
+            self.screen.fill((255, 248, 220))
             self.snake.move()
-            self.snake.draw_snake(screen)
-            self.food.draw_food(screen)
+            self.snake.draw_snake(self.screen)
+            self.food.draw_food(self.screen)
             self.score.eating(self.snake, self.food)
             pygame.display.flip()
             clock.tick(10)

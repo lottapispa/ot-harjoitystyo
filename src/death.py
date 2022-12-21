@@ -15,7 +15,6 @@ class Death():
         self.bigfont = pygame.font.SysFont("Candara", 36)
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
         self.die_called = False
-        self.reset_called = False
         self.call_main = False
 
     def die(self):
@@ -46,8 +45,11 @@ class Death():
         screen.blit(quit_game, (275, 335))
 
         pygame.display.flip()
+        #self.reset()
         while True:
             self.gameover_loop()
+            if self.call_main:
+                break
 
     def gameover_loop(self):
         """Game over window's while loop's content.
@@ -58,16 +60,16 @@ class Death():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse = pygame.mouse.get_pos()
                 if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
-                    self.reset()
                     self.call_main = True
-                    self.reset_called  = False
+                    #self.reset()
+                    break
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
                     sys.exit()
 
     def reset(self):
         """Resets values for a new game."""
-        self.reset_called = True
+        self.call_main = True
         self.snake.length = 1
         self.snake.location = [((self.screen_proportions[0]/2), (self.screen_proportions[1]/2))]
         self.snake.direction = random.choice(list(self.directions.values()))

@@ -1,20 +1,17 @@
 import unittest
 from snake import Snake
 from food import Food
-from keyboard_events import KeyboardEvents
 from gameloop import GameLoop
-import pygame
 
 class TestFood(unittest.TestCase):
     def setUp(self):
-        food = Food()
-        self.size = food.size
-        self.color = food.color
-        self.location = food.location
-        snake = Snake()
-        self.length = snake.length
-        self.points = snake.points
-        self.highscore = snake.highscore
+        self.food = Food()
+        self.size = self.food.size
+        self.color = self.food.color
+        self.location = self.food.location
+        self.snake = Snake()
+        self.length = self.snake.length
+        self.game_loop = GameLoop()
 
     def test_correct_size(self):
         self.assertEqual(self.size, 10)
@@ -29,19 +26,11 @@ class TestFood(unittest.TestCase):
         self.assertLess(self.location[0], 631)
         self.assertLess(self.location[1], 471)
 
-    def test_draw_food(self):
-        food = Food()
-        game_loop = GameLoop()
-        self.a, self.b, self.c, self.d = self.draw_food()
+    def draw_food(self):
+        #?
+        self.game_loop = GameLoop()
+        self.a, self.b, self.c, self.d = self.food.draw_food(self.game_loop.screen)
         self.assertEqual(self.b, (139,69,19))
         self.assertEqual(self.d, 10)
 
-    def test_eating(self):
-        food = Food()
-        food.location = (40, 40)
-        snake = Snake()
-        snake.location = [(40, 40)]
-        food.eating(snake)
-        self.assertEqual(snake.length, 2)
-        self.assertEqual(snake.points, 1)
         
