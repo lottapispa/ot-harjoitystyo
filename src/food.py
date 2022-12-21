@@ -17,12 +17,3 @@ class Food():
     def draw_food(self, screen):
         """Draws food."""
         pygame.draw.circle(screen, self.color, self.location, self.size)
-
-    def eating(self, snake):
-        """Grows snake and adds points if snake eats food."""
-        if pygame.Rect.collidepoint(snake.head_rect(), self.location) is True:
-            snake.length += 1
-            snake.points += 1
-            if snake.points > snake.highscore:
-                snake.highscore = snake.points
-            self.random_location()

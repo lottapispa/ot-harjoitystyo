@@ -8,20 +8,12 @@ class Snake():
         pygame.init()
         self.length = 1
         self.color = (102, 205, 0)
-        self.screen_width = 640
-        self.screen_height = 480
-        self.location = [((self.screen_width/2), (self.screen_height/2))]
-        self.up = (0, -1)
-        self.down = (0, 1)
-        self.left = (-1, 0)
-        self.right = (1, 0)
-        self.direction = random.choice([self.up,self.down,self.left,self.right])
-        self.points = 0
-        self.highscore = 0
+        self.screen_proportions = (640, 480)
+        self.location = [((self.screen_proportions[0]/2), (self.screen_proportions[1]/2))]
+        self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
+        self.direction = random.choice(list(self.directions.values()))
         self.step = 20 # how much snake moves at once
         self.duration = 0 # tracks how long the game lasts (not used yet)
-        self.die_called = False
-        self.reset_called = False
         self.dead = False
 
     def head_location(self):
@@ -50,29 +42,29 @@ class Snake():
     def turn_up(self):
         """These turn functions are called by the keyboard function.
         They change the direction variable."""
-        if (self.direction != self.down and self.direction != self.up) or self.length == 1:
-            self.direction = self.up
+        if self.direction not in (self.directions["down"], self.directions["up"]) or self.length == 1:
+            self.direction = self.directions["up"]
 
     def turn_down(self):
-        if (self.direction != self.up and self.direction != self.down) or self.length == 1:
-            self.direction = self.down
+        if self.direction not in (self.directions["up"], self.directions["down"]) or self.length == 1:
+            self.direction = self.directions["down"]
 
     def turn_left(self):
-        if (self.direction != self.right and self.direction != self.left) or self.length == 1:
-            self.direction = self.left
+        if self.direction not in (self.directions["right"], self.directions["left"]) or self.length == 1:
+            self.direction = self.directions["left"]
 
     def turn_right(self):
-        if (self.direction != self.left and self.direction != self.right) or self.length == 1:
-            self.direction = self.right
+        if self.direction not in (self.directions["left"], self.directions["right"]) or self.length == 1:
+            self.direction = self.directions["right"]
 
     def move(self):
         """Moves snake by adding a new location in list and popping the last location."""
         self.current = self.head_location()
         self.width = self.direction[0]
         self.height = self.direction[1]
-        if self.direction in (self.up, self.down):
+        if self.direction in (self.directions["up"], self.directions["down"]):
             self.new_head = (self.current[0], self.current[1] + (self.step * self.height))
-        elif self.direction in (self.left,  self.right):
+        elif self.direction in (self.directions["left"],  self.directions["right"]):
             self.new_head = (self.current[0] + (self.step * self.width), self.current[1])
         # snake dies if it hits itself or a wall
         if len(self.location) > 2 and self.new_head in self.location[2:]:
@@ -85,14 +77,3 @@ class Snake():
             self.location.insert(0, self.new_head)
             if len(self.location) > self.length:
                 self.location.pop()
-
-    def reset(self):
-        """Resets values for a new game."""
-        self.reset_called = True
-        self.length = 1
-        self.location = [((self.screen_width/2), (self.screen_height/2))]
-        self.direction = random.choice([self.up, self.down, self.left, self.right])
-        self.points = 0
-        self.duration = 0
-        self.dead = False
-        self.die_called = False

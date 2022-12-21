@@ -2,6 +2,7 @@ import unittest
 from snake import Snake
 from food import Food
 from keyboard_events import KeyboardEvents
+from gameloop import GameLoop
 import pygame
 
 class TestFood(unittest.TestCase):
@@ -28,8 +29,12 @@ class TestFood(unittest.TestCase):
         self.assertLess(self.location[0], 631)
         self.assertLess(self.location[1], 471)
 
-    def draw_food(self):
-        pass
+    def test_draw_food(self):
+        food = Food()
+        game_loop = GameLoop()
+        self.a, self.b, self.c, self.d = self.draw_food()
+        self.assertEqual(self.b, (139,69,19))
+        self.assertEqual(self.d, 10)
 
     def test_eating(self):
         food = Food()

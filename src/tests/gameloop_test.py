@@ -19,10 +19,8 @@ class TestGameLoop(unittest.TestCase):
         self.assertEqual(self.screen_width, 640)
         self.assertEqual(self.screen_height, 480)
 
-    def correct_fonts(self):
-        # 
-        self.assertEqual(self.font, pygame.font.SysFont("Candara", 24))
-        self.assertEqual(self.bigfont, pygame.font.SysFont("Candara", 36))
+    def test_keyboard(self):
+        pass
 
     def gameover_loop_do_mouse_buttons_work(self):
         #?

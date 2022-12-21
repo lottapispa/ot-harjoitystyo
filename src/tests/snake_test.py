@@ -60,8 +60,11 @@ class TestSnake(unittest.TestCase):
         snake = Snake()
         self.assertEqual(snake.head_location(), snake.location[0])
 
-    def head_rect(self):
-        pass
+    def test_head_rect(self):
+        #checks rectangle is the right size
+        snake = Snake()
+        self.a, self.b, self.c, self.d = snake.head_rect()
+        self.assertTupleEqual((self.c, self.d), (20, 20))
 
     def test_death_booleans_correct_in_the_beginning(self):
         snake = Snake()
