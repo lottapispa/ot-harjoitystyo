@@ -7,23 +7,18 @@ Ohjelmassa on 3 eri luokkaa: Snake, Food ja GameLoop.
 classDiagram
     Snake -- GameLoop
     Food -- GameLoop
+    Score -- GameLoop
+    Death -- GameLoop
     class Snake{
         +int length
         +tuple color
-        +int screen_width
-        +int screen_height
+        +tuple screen_proportions
         +list location
-        +tuple up
-        +tuple down
-        +tuple left
-        +tuple right
+        +dict directions
         +tuple direction
-        +int points
-        +int highscore
+        +int counter
         +int step
         +int duration
-        +bool die_called
-        +bool reset_called
         +bool dead
         +head_location()
         +head_rect()
@@ -33,7 +28,6 @@ classDiagram
         +turn_left()
         +turn_right()
         +move()
-        +reset()
     }
     class Food{
         +int size
@@ -41,19 +35,35 @@ classDiagram
         +tuple location
         +random_location()
         +draw_food()
+    }
+    class Score{
+        +int points
+        +int highscore
         +eating()
+    }
+    class Death{
+        +snake
+        +score
+        +tuple screen_proportions
+        +tuple font
+        +tuple bigfont
+        +dict directions
+        +bool die_called
+        +bool call_main
+        +die()
+        +gameover_loop()
+        +reset()
     }
     class GameLoop{
         +snake
         +food
-        +int screen_width
-        +int screen_height
+        +score
+        +death
+        +tuple screen_proportions
+        +caption
+        +screen
         +events
-        +tuple font
-        +tuple bigfont
         +keyboard()
-        +die()
-        +gameover_loop()
         +main()
     }
 ```
