@@ -60,6 +60,9 @@ class TestSnake(unittest.TestCase):
         snake = Snake()
         self.assertEqual(snake.head_location(), snake.location[0])
 
+    def head_rect(self):
+        pass
+
     def test_death_booleans_correct_in_the_beginning(self):
         snake = Snake()
         self.assertFalse(snake.die_called)
@@ -136,3 +139,6 @@ class TestSnake(unittest.TestCase):
         self.assertEqual(snake.duration, 0)
         self.assertFalse(snake.dead)
         self.assertFalse(snake.die_called)
+
+    def draw_snake(self):
+        pass

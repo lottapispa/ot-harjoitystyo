@@ -50,19 +50,19 @@ class Snake():
     def turn_up(self):
         """These turn functions are called by the keyboard function.
         They change the direction variable."""
-        if self.direction != self.down or self.direction != self.up or self.length == 1:
+        if (self.direction != self.down and self.direction != self.up) or self.length == 1:
             self.direction = self.up
 
     def turn_down(self):
-        if self.direction != self.up or self.direction != self.down or self.length == 1:
+        if (self.direction != self.up and self.direction != self.down) or self.length == 1:
             self.direction = self.down
 
     def turn_left(self):
-        if self.direction != self.right or self.direction != self.left or self.length == 1:
+        if (self.direction != self.right and self.direction != self.left) or self.length == 1:
             self.direction = self.left
 
     def turn_right(self):
-        if self.direction != self.left or self.direction != self.right or self.length == 1:
+        if (self.direction != self.left and self.direction != self.right) or self.length == 1:
             self.direction = self.right
 
     def move(self):
