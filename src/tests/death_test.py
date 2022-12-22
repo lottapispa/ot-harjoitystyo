@@ -12,8 +12,11 @@ class TestDeath(unittest.TestCase):
         self.die_called = self.death.die_called
         self.screen_proportions = self.death.screen_proportions #(640, 480)
 
-    def test_die_called_boolean_correct_in_the_beginning(self):
-        self.assertFalse(self.death.die_called)
+    def die_called_boolean_correct_in_the_beginning(self):
+        #?
+        self.death.die_called = False
+        self.death.die()
+        self.assertTrue(self.death.die_called)
 
     def test_correct_screen(self):
         self.assertEqual(self.screen_proportions[0], 640)

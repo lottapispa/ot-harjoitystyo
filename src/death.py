@@ -2,17 +2,18 @@ import sys
 import random
 import pygame
 from keyboard_events import KeyboardEvents
+from fonts import Fonts
 
 class Death():
-    """Class that """
+    """Class that handles snake's death."""
     def __init__(self, snake, score):
         """Class constructor, creates variables."""
         self.snake = snake
         self.score = score
+        self.fonts = Fonts()
         self.events = KeyboardEvents()
         self.screen_proportions = (640, 480)
-        self.font = pygame.font.SysFont("Candara", 24)
-        self.bigfont = pygame.font.SysFont("Candara", 36)
+        self.screen = None
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
         self.die_called = False
         self.call_main = False
@@ -21,28 +22,20 @@ class Death():
         """Game over window."""
         pygame.init()
         self.die_called = True
-        screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
-        screen.fill((255, 248, 220))
-        pygame.draw.rect(screen, (0, 0, 0), (220, 100, 200, 290))
 
-        #texts and blitting them
-        game_over = self.bigfont.render("Game Over", True, (255, 97, 3))
-        screen.blit(game_over, (250, 130))
+        # creating background
+        self.screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
+        self.screen.fill((255, 248, 220))
+        pygame.draw.rect(self.screen, (0, 0, 0), (220, 100, 200, 290))
 
-        points = self.font.render(f"Points: {self.score.points}", True, (255, 248, 220))
-        screen.blit(points, (275, 175))
-
-        time = self.font.render("Time: ", True, (255, 248, 220))
-        screen.blit(time, (275, 215))
-
-        highscore = self.font.render(f"Highscore: {self.score.highscore}", True, (255, 248, 220))
-        screen.blit(highscore, (275, 255))
-
-        play_again = self.font.render("Play Again", True, (255, 248, 220))
-        screen.blit(play_again, (275, 295))
-
-        quit_game = self.font.render("Quit Game", True, (255, 248, 220))
-        screen.blit(quit_game, (275, 335))
+        #getting texts and blitting them
+        self.fonts.rendering_text(self.score)
+        self.screen.blit(self.fonts.game_over, (250, 130))
+        self.screen.blit(self.fonts.points, (275, 175))
+        self.screen.blit(self.fonts.time, (275, 215))
+        self.screen.blit(self.fonts.highscore, (275, 255))
+        self.screen.blit(self.fonts.play_again, (275, 295))
+        self.screen.blit(self.fonts.quit_game, (275, 335))
 
         pygame.display.flip()
         #self.reset()
