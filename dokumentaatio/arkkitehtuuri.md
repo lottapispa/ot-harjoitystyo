@@ -1,6 +1,6 @@
 # Arkkitehtuuri
 ## Ohjelma
-Ohjelmassa on 5 eri luokkaa: Snake, Food, Score, Death ja GameLoop.
+Ohjelmassa on 6 eri luokkaa: Snake, Food, Score, Death, Fonts ja GameLoop.
 ## Luokkakaavio
 
 ```mermaid
@@ -9,6 +9,7 @@ classDiagram
     Food -- GameLoop
     Score -- GameLoop
     Death -- GameLoop
+    Fonts -- Death
     class Snake{
         +int length
         +tuple color
@@ -45,14 +46,23 @@ classDiagram
         +snake
         +score
         +tuple screen_proportions
-        +tuple font
-        +tuple bigfont
         +dict directions
         +bool die_called
         +bool call_main
         +die()
         +gameover_loop()
         +reset()
+    }
+    class Fonts{
+        +tuple font
+        +tuple bigfont
+        +game_over
+        +points
+        +time
+        +highscore
+        +play_again
+        +quit_game
+        +rendering_text()
     }
     class GameLoop{
         +snake
