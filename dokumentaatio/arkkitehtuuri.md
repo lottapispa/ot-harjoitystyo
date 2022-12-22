@@ -103,3 +103,6 @@ sequenceDiagram
     GameLoop().main() ->> Snake().move(): move()
     Snake().move() ->> Snake().__init__(): location = new
 ```
+
+## Ohjelman rakenteen puutteita
+Attribuuttien määrä on liian suuri luokassa Snake. Muutama attribuutti on määritelty konstruktorin ulkopuolella, mutta ne ovat attribuutteja, joita käytetään vain omissa funktioissaan.
