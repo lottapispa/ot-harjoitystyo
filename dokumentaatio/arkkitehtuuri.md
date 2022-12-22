@@ -79,7 +79,7 @@ classDiagram
 ```
 
 ## Toiminnallisuus
-Kuvataan ohjelman toiminnallisuutta sekvenssikaavioilla
+Kuvataan ohjelman toiminnallisuutta sekvenssikaavioilla.
 ### Keyboard ja turn funktioiden toiminta:
 
 ```mermaid
