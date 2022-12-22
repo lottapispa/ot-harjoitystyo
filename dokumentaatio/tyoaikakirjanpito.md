@@ -15,4 +15,5 @@
  | 16.12 | 3,5 | rakenteen korjausta, luokat siirretty omiin tiedostoihin, yleisesti koodin paranteleminen, testauksen parantaminen, testausdokumentin luonti, dokumentaation parantaminen
  | 20.12 | 6 | testauksen tekemistä, pylint korjauksia, yleisesti koodin paranteleminen
  | 21.12 | 8 | rakenteen korjausta, tehty lisää luokkia, testauksen tekemistä, pylint korjauksia, dokumentaation tekemistä, korjattu turn funktiot
+ | 22.12 | x | testauksen tekemistä, pylint korjauksia, dokumentaation tekemistä
  | yht. | 46,75
