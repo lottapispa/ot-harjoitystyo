@@ -15,7 +15,6 @@ class TestSnake(unittest.TestCase):
         self.screen_proportions = self.snake.screen_proportions #(640, 480)
         self.location = self.snake.location
         self.directions = self.snake.directions #up, down, left, right
-        self.direction = self.snake.direction
         self.step = self.snake.step
         self.dead = self.snake.dead
         #self.events = GameLoop().events
@@ -42,13 +41,11 @@ class TestSnake(unittest.TestCase):
 
     def test_head_location(self):
         #tests that head_location function works
-        snake = Snake()
-        self.assertEqual(snake.head_location(), snake.location[0])
+        self.assertEqual(self.snake.head_location(), self.snake.location[0])
 
     def test_head_rect(self):
         #checks rectangle is the right size
-        snake = Snake()
-        self.a, self.b, self.c, self.d = snake.head_rect()
+        self.a, self.b, self.c, self.d = self.snake.head_rect()
         self.assertTupleEqual((self.c, self.d), (20, 20))
 
     # checks if direction changes
@@ -82,47 +79,43 @@ class TestSnake(unittest.TestCase):
 
     def test_turn_doesnt_turn_backwards(self):
         snake = Snake()
-        self.direction = snake.directions["up"]
+        snake.direction = snake.directions["up"]
         snake.length == 2
         snake.turn_down()
-        self.assertTupleEqual(self.direction, snake.directions["up"])
+        self.assertTupleEqual(snake.direction, (0, -1))
 
     def test_move_changes_head_location_x(self):
-        snake = Snake()
-        snake.location = [(40, 40)]
-        snake.direction = self.directions["up"]
-        self.old_head_location = snake.head_location()
-        snake.move()
-        self.new_head_location = snake.head_location()
+        self.location = [(40, 40)]
+        self.direction = self.snake.directions["up"]
+        self.old_head_location = self.snake.head_location()
+        self.snake.move()
+        self.new_head_location = self.snake.head_location()
         self.assertNotEqual(self.old_head_location, self.new_head_location)
 
     def test_move_changes_head_location_y(self):
-        snake = Snake()
-        snake.location = [(40, 40)]
-        snake.direction = self.directions["left"]
-        self.old_head_location = snake.head_location()
-        snake.move()
-        self.new_head_location = snake.head_location()
+        self.location = [(40, 40)]
+        self.direction = self.snake.directions["left"]
+        self.old_head_location = self.snake.head_location()
+        self.snake.move()
+        self.new_head_location = self.snake.head_location()
         self.assertNotEqual(self.old_head_location, self.new_head_location)
 
     def test_move_changes_tail_location_x(self):
         #check that tail of snake moves as well so that snake doesn't just grow when moving
-        snake = Snake()
-        snake.location = [(40, 40)]
-        snake.direction = self.directions["up"]
-        self.old_tail_location = snake.location[-1]
-        snake.move()
-        self.new_tail_location = snake.location[-1]
+        self.location = [(40, 40)]
+        self.direction = self.snake.directions["up"]
+        self.old_tail_location = self.snake.location[-1]
+        self.snake.move()
+        self.new_tail_location = self.snake.location[-1]
         self.assertNotEqual(self.old_tail_location, self.new_tail_location)
 
     def test_move_changes_tail_location_y(self):
         #check that tail of snake moves as well so that snake doesn't just grow when moving
-        snake = Snake()
-        snake.location = [(40, 40)]
-        snake.direction = self.directions["left"]
-        self.old_tail_location = snake.location[-1]
-        snake.move()
-        self.new_tail_location = snake.location[-1]
+        self.location = [(40, 40)]
+        self.direction = self.snake.directions["left"]
+        self.old_tail_location = self.snake.location[-1]
+        self.snake.move()
+        self.new_tail_location = self.snake.location[-1]
         self.assertNotEqual(self.old_tail_location, self.new_tail_location)
 
     def test_eating_and_move_grows_location_list(self):
