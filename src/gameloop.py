@@ -14,9 +14,9 @@ class GameLoop():
         self.food = Food()
         self.score = Score()
         self.death  = Death(self.snake, self.score)
-        self.screen_proportions = (640, 480)
+        self.screen_size = (640, 480)
         pygame.display.set_caption("Snake")
-        self.screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
+        self.screen = pygame.display.set_mode((self.screen_size[0], self.screen_size[1]))
         self.events = KeyboardEvents()
 
     def keyboard(self):

@@ -12,7 +12,7 @@ class Death():
         self.score = score
         self.fonts = Fonts()
         self.events = KeyboardEvents()
-        self.screen_proportions = (640, 480)
+        self.screen_size = (640, 480)
         self.screen = None
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
         self.die_called = False
@@ -24,7 +24,7 @@ class Death():
         self.die_called = True
 
         # creating background
-        self.screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
+        self.screen = pygame.display.set_mode((self.screen_size[0], self.screen_size[1]))
         self.screen.fill((255, 248, 220))
         pygame.draw.rect(self.screen, (0, 0, 0), (220, 100, 200, 290))
 
@@ -64,7 +64,7 @@ class Death():
         """Resets values for a new game."""
         self.call_main = True
         self.snake.length = 1
-        self.snake.location = [((self.screen_proportions[0]/2), (self.screen_proportions[1]/2))]
+        self.snake.location = [((self.screen_size[0]/2), (self.screen_size[1]/2))]
         self.snake.direction = random.choice(list(self.directions.values()))
         self.score.points = 0
         self.snake.duration = 0

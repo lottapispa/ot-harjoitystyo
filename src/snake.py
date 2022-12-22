@@ -8,8 +8,8 @@ class Snake():
         pygame.init()
         self.length = 1
         self.color = (102, 205, 0)
-        self.screen_proportions = (640, 480)
-        self.location = [((self.screen_proportions[0]/2), (self.screen_proportions[1]/2))]
+        self.screen_size = (640, 480)
+        self.location = [((self.screen_size[0]/2), (self.screen_size[1]/2))]
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
         self.direction = random.choice(list(self.directions.values()))
         self.counter = 0
