@@ -1,7 +1,7 @@
 # Arkkitehtuuri
 ## Ohjelma
 Ohjelmassa on 6 eri luokkaa: Snake, Food, Score, Death, Fonts ja GameLoop.
-## Luokkakaavio
+## Luokkakaavio ohjelman rakenteesta
 
 ```mermaid
 classDiagram
