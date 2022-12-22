@@ -26,11 +26,12 @@ class TestFood(unittest.TestCase):
         self.assertLess(self.location[0], 631)
         self.assertLess(self.location[1], 471)
 
-    def draw_food(self):
-        #?
-        self.game_loop = GameLoop()
-        self.a, self.b, self.c, self.d = self.food.draw_food(self.game_loop.screen)
-        self.assertEqual(self.b, (139,69,19))
-        self.assertEqual(self.d, 10)
+    def test_draw_food(self):
+        food = Food()
+        gameloop = GameLoop()
+        food.location = (240, 340)
+        food.draw_food(gameloop.screen)
+        self.assertEqual(food.location, (240, 340))
+        
 
         

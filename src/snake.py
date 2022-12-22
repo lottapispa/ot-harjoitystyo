@@ -31,8 +31,8 @@ class Snake():
         """Draws snake  by drawing a rectangle in every location in list.
         Snake head has a black outline."""
         self.counter = 0
-        for location in self.location:
-            self.rect = pygame.Rect((location[0], location[1]), (20, 20))
+        for loc in self.location:
+            self.rect = pygame.Rect((loc[0], loc[1]), (20, 20))
             if self.counter == 0:
                 pygame.draw.rect(screen, self.color, self.rect)
                 pygame.draw.rect(screen, (0, 0, 0), self.rect, 1)
@@ -61,12 +61,10 @@ class Snake():
     def move(self):
         """Moves snake by adding a new location in list and popping the last location."""
         self.current = self.head_location()
-        self.width = self.direction[0]
-        self.height = self.direction[1]
         if self.direction in (self.directions["up"], self.directions["down"]):
-            self.new_head = (self.current[0], self.current[1] + (self.step * self.height))
-        elif self.direction in (self.directions["left"],  self.directions["right"]):
-            self.new_head = (self.current[0] + (self.step * self.width), self.current[1])
+            self.new_head = (self.current[0], self.current[1] + (self.step * self.direction[1]))
+        else:
+            self.new_head = (self.current[0] + (self.step * self.direction[0]), self.current[1])
         # snake dies if it hits itself or a wall
         if len(self.location) > 2 and self.new_head in self.location[2:]:
             self.dead = True

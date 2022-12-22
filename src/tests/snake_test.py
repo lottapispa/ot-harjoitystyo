@@ -15,6 +15,7 @@ class TestSnake(unittest.TestCase):
         self.screen_proportions = self.snake.screen_proportions #(640, 480)
         self.location = self.snake.location
         self.directions = self.snake.directions #up, down, left, right
+        self.counter = self.snake.counter
         self.step = self.snake.step
         self.dead = self.snake.dead
         #self.events = GameLoop().events
@@ -77,7 +78,8 @@ class TestSnake(unittest.TestCase):
         snake.turn_right()
         self.assertTupleEqual(snake.direction, (1, 0))
 
-    def test_turn_doesnt_turn_backwards(self):
+    def turn_doesnt_turn_backwards(self):
+        #?
         snake = Snake()
         snake.direction = snake.directions["up"]
         snake.length == 2
@@ -156,9 +158,22 @@ class TestSnake(unittest.TestCase):
         self.counter = snake.counter
         self.assertEqual(self.counter, 0)
 
-    def draw_snake(self):
-        #?
+    def test_draw_snake_len_1(self):
         snake = Snake()
+        gameloop = GameLoop()
+        snake.counter = 0
+        snake.length = 1
         snake.location = [(340, 280)]
-        self.counter = snake.counter
-        self.assertEqual(self.counter, 0)
+        snake.draw_snake(gameloop.screen)
+        self.assertEqual(snake.rect, pygame.Rect((340, 280), (20, 20)))
+        self.assertEqual(snake.counter, 1)
+
+    def test_draw_snake_longer(self):
+        snake = Snake()
+        gameloop = GameLoop()
+        snake.counter = 0
+        snake.length = 2
+        snake.location = [(340, 280), (360, 280)]
+        snake.draw_snake(gameloop.screen)
+        self.assertEqual(snake.rect, pygame.Rect((360, 280), (20, 20)))
+        self.assertEqual(snake.counter, 2)
