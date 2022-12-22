@@ -14,13 +14,13 @@ class TestGameLoop(unittest.TestCase):
         self.gameloop = GameLoop()
         self.score = Score()
         self.death = Death(self.snake, self.score)
-        self.screen_proportions = self.gameloop.screen_proportions #(640, 480)
+        self.screen_size = self.gameloop.screen_size #(640, 480)
         self.events = KeyboardEvents()
         self.keyboard_events = KeyboardEvents().get()
 
     def test_correct_screen(self):
-        self.assertEqual(self.gameloop.screen_proportions[0], 640)
-        self.assertEqual(self.gameloop.screen_proportions[1], 480)
+        self.assertEqual(self.gameloop.screen_size[0], 640)
+        self.assertEqual(self.gameloop.screen_size[1], 480)
 
     def keyboard_keys_works(self):
         #?

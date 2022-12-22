@@ -12,7 +12,7 @@ class TestSnake(unittest.TestCase):
         self.score = Score()
         self.length = self.snake.length
         self.color = self.snake.color
-        self.screen_proportions = self.snake.screen_proportions #(640, 480)
+        self.screen_size = self.snake.screen_size #(640, 480)
         self.location = self.snake.location
         self.directions = self.snake.directions #up, down, left, right
         self.counter = self.snake.counter
@@ -28,8 +28,8 @@ class TestSnake(unittest.TestCase):
         self.assertEqual(self.color, (102, 205, 0))
 
     def test_correct_screen(self):
-        self.assertEqual(self.screen_proportions[0], 640)
-        self.assertEqual(self.screen_proportions[1], 480)
+        self.assertEqual(self.screen_size[0], 640)
+        self.assertEqual(self.screen_size[1], 480)
 
     def test_correct_directions(self):
         self.assertEqual(self.directions["up"], (0, -1))
