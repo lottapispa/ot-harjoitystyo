@@ -18,6 +18,14 @@ class TestDeath(unittest.TestCase):
         self.death.die()
         self.assertTrue(self.death.die_called)
 
+    def screen_works(self):
+        #?
+        self.screen = None
+
+    def die_call_rendering(self):
+        #?
+        pass
+
     def test_correct_screen(self):
         self.assertEqual(self.screen_proportions[0], 640)
         self.assertEqual(self.screen_proportions[1], 480)
