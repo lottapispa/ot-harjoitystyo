@@ -1,5 +1,6 @@
 import random
 import pygame
+from enum import Enum
 
 class Snake():
     """Class that creates and keeps track of snake."""
