@@ -13,7 +13,7 @@ classDiagram
     class Snake{
         +int length
         +tuple color
-        +tuple screen_proportions
+        +tuple screen_size
         +list location
         +dict directions
         +tuple direction
@@ -45,7 +45,9 @@ classDiagram
     class Death{
         +snake
         +score
-        +tuple screen_proportions
+        +fonts
+        +events
+        +tuple screen_size
         +dict directions
         +bool die_called
         +bool call_main
@@ -65,13 +67,13 @@ classDiagram
         +rendering_text()
     }
     class GameLoop{
+        +caption
+        +tuple screen_size
+        +screen
         +snake
         +food
         +score
         +death
-        +tuple screen_proportions
-        +caption
-        +screen
         +events
         +keyboard()
         +main()
