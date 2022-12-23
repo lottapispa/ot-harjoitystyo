@@ -9,6 +9,7 @@ classDiagram
     Food -- GameLoop
     Score -- GameLoop
     Death -- GameLoop
+    KeyBoard -- GameLoop
     Fonts -- Death
     class Snake{
         +int length
@@ -78,6 +79,11 @@ classDiagram
         +events
         +keyboard()
         +main()
+    }
+    class KeyBoard{
+        +snake
+        +screen_size
+        +events
     }
 ```
 
