@@ -15,6 +15,7 @@ class Death():
         self.screen_size = screen_size
         self.screen = None
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
+        self.mouse = pygame.mouse.get_pos()
         self.die_called = False
         self.call_main = False
 
@@ -43,19 +44,17 @@ class Death():
         """Game over window's while loop's content.
         Makes buttons in gameover window work."""
         for event in self.events.get():
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.mouse = pygame.mouse.get_pos()
+                if 275 <= self.mouse[0] <= 355 and 295 <= self.mouse[1] <= 320:
+                    self.call_main = True
+                elif 275 <= self.mouse[0] <= 355 and 335 <= self.mouse[1] <= 360:
+                    sys.exit()
             if event.type == pygame.QUIT:
                 sys.exit()
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                mouse = pygame.mouse.get_pos()
-                if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
-                    self.call_main = True
-            if event.type == pygame.MOUSEBUTTONDOWN:
-                if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
-                    sys.exit()
 
     def reset(self):
         """Resets values for a new game."""
-        self.call_main = False
         self.snake.length = 1
         self.snake.location = [((self.screen_size[0]/2), (self.screen_size[1]/2))]
         self.snake.direction = random.choice(list(self.directions.values()))
@@ -63,3 +62,4 @@ class Death():
         self.snake.duration = 0
         self.snake.dead = False
         self.die_called = False
+        self.call_main = False

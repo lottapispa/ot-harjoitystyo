@@ -4,7 +4,6 @@ from food import Food
 from gameloop import GameLoop
 from death import Death
 from score import Score
-from keyboard_events import KeyboardEvents
 from keyboard import KeyBoard
 import pygame
 
@@ -25,7 +24,7 @@ class GetEvents():
     def get(self):
         return self.events
 
-class TestGameLoop(unittest.TestCase):
+class TestKeyBoard(unittest.TestCase):
     def setUp(self):
         self.gameloop = GameLoop()
         self.screen_size = self.gameloop.screen_size #(640, 480)
@@ -33,40 +32,21 @@ class TestGameLoop(unittest.TestCase):
         self.food = Food()
         self.score = Score()
         self.death = Death(self.snake, self.score, self.screen_size)
-        self.events = KeyboardEvents()
-        self.keyboard_events = KeyboardEvents().get()
 
-    def test_correct_screen(self):
-        self.assertEqual(self.gameloop.screen_size[0], 640)
-        self.assertEqual(self.gameloop.screen_size[1], 480)
-
-    def main_exit(self):
+    def keyboard_quit(self):
         event = Event(pygame.QUIT)
         get_events = GetEvents(event)
         keyboard = KeyBoard(get_events)
-        game_loop = GameLoop()
-        snake = Snake(self.screen_size)
-        score = Score()
-        death = Death(snake, score, self.screen_size)
-        snake.dead = True
-        death.call_main = False
-        death.mouse = (280, 350)
+        #snake = Snake(self.screen_size)
         with self.assertRaises(SystemExit):
-            game_loop.main()
+            keyboard.keyboard()
 
-    def main_play_again(self):
-        event = Event(pygame.MOUSEBUTTONDOWN)
+    def keyboard_press_up(self):
+        event = Event(pygame.KEYDOWN,pygame.K_UP)
         get_events = GetEvents(event)
         keyboard = KeyBoard(get_events)
-        game_loop = GameLoop()
         snake = Snake(self.screen_size)
-        score = Score()
-        death = Death(snake, score, self.screen_size)
-        snake.dead = True
-        death.call_main = False
-        death.mouse = (280, 310)
+        snake.direction = snake.directions["left"]
+        snake.length == 2
         keyboard.keyboard()
-
-        game_loop.main()
-        self.assertFalse(death.call_main)
-
+        self.assertEqual(snake.direction, (0, -1))
