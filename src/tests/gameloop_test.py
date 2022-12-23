@@ -9,12 +9,12 @@ import pygame
 
 class TestGameLoop(unittest.TestCase):
     def setUp(self):
-        self.snake = Snake()
-        self.food = Food()
         self.gameloop = GameLoop()
-        self.score = Score()
-        self.death = Death(self.snake, self.score)
         self.screen_size = self.gameloop.screen_size #(640, 480)
+        self.snake = Snake(self.screen_size)
+        self.food = Food()
+        self.score = Score()
+        self.death = Death(self.snake, self.score, self.screen_size)
         self.events = KeyboardEvents()
         self.keyboard_events = KeyboardEvents().get()
 
@@ -25,7 +25,7 @@ class TestGameLoop(unittest.TestCase):
     def keyboard_keys_works(self):
         #?
         gameloop = GameLoop()
-        snake = Snake()
+        snake = Snake(self.screen_size)
         snake.direction = self.snake.directions["left"]
         snake.length = 2
         for self.event in gameloop.events.get():
@@ -42,7 +42,7 @@ class TestGameLoop(unittest.TestCase):
     def keyboard_exit_works(self):
         #?
         gameloop = GameLoop()
-        snake = Snake()
+        snake = Snake(self.screen_size)
         snake.direction = self.snake.directions["left"]
         snake.length = 2
         for self.event in gameloop.events.get():

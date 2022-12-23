@@ -2,15 +2,17 @@ import unittest
 from snake import Snake
 from death import Death
 from score import Score
+from gameloop import GameLoop
 import pygame
 
 class TestDeath(unittest.TestCase):
     def setUp(self):
-        self.snake = Snake()
+        self.game_loop = GameLoop()
+        self.screen_size = self.game_loop.screen_size #(640, 480)
+        self.snake = Snake(self.screen_size)
         self.score = Score()
-        self.death = Death(self.snake, self.score)
+        self.death = Death(self.snake, self.score, self.screen_size)
         self.die_called = self.death.die_called
-        self.screen_size = self.death.screen_size #(640, 480)
 
     def die_called_boolean_correct_in_the_beginning(self):
         #?

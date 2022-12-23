@@ -9,9 +9,9 @@ class TestFood(unittest.TestCase):
         self.size = self.food.size
         self.color = self.food.color
         self.location = self.food.location
-        self.snake = Snake()
-        self.length = self.snake.length
         self.game_loop = GameLoop()
+        self.snake = Snake(self.game_loop.screen_size)
+        self.length = self.snake.length
 
     def test_correct_size(self):
         self.assertEqual(self.size, 10)

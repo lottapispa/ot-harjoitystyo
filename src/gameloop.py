@@ -10,13 +10,13 @@ class GameLoop():
     """Class that has the game's main loop."""
     def __init__(self):
         """Class constructor, creates variables, calls other classes."""
-        self.snake = Snake()
+        pygame.display.set_caption("Snake")
+        self.screen_size = (640, 480)
+        self.screen = pygame.display.set_mode((self.screen_size[0], self.screen_size[1]))
+        self.snake = Snake(self.screen_size)
         self.food = Food()
         self.score = Score()
-        self.death  = Death(self.snake, self.score)
-        self.screen_size = (640, 480)
-        pygame.display.set_caption("Snake")
-        self.screen = pygame.display.set_mode((self.screen_size[0], self.screen_size[1]))
+        self.death  = Death(self.snake, self.score, self.screen_size)
         self.events = KeyboardEvents()
 
     def keyboard(self):
@@ -36,15 +36,16 @@ class GameLoop():
     def main(self):
         """Main loop."""
         pygame.init()
-        #screen = pygame.display.set_mode((self.screen_proportions[0], self.screen_proportions[1]))
         clock = pygame.time.Clock()
 
         while True:
             if self.snake.dead:
                 self.death.die()
-            if self.death.call_main:
-                self.death.call_main = False
-                self.main()
+                while True:
+                    self.death.gameover_loop()
+                    if self.death.call_main:
+                        self.death.reset()
+                        break
             self.keyboard()
             self.screen.fill((255, 248, 220))
             self.snake.move()

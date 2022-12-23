@@ -6,13 +6,13 @@ from fonts import Fonts
 
 class Death():
     """Class that handles snake's death."""
-    def __init__(self, snake, score):
+    def __init__(self, snake, score, screen_size):
         """Class constructor, creates variables."""
         self.snake = snake
         self.score = score
         self.fonts = Fonts()
         self.events = KeyboardEvents()
-        self.screen_size = (640, 480)
+        self.screen_size = screen_size
         self.screen = None
         self.directions = {"up": (0, -1), "down": (0, 1), "left": (-1, 0), "right": (1, 0)}
         self.die_called = False
@@ -38,11 +38,6 @@ class Death():
         self.screen.blit(self.fonts.quit_game, (275, 335))
 
         pygame.display.flip()
-        #self.reset()
-        while True:
-            self.gameover_loop()
-            if self.call_main:
-                break
 
     def gameover_loop(self):
         """Game over window's while loop's content.
@@ -54,15 +49,13 @@ class Death():
                 mouse = pygame.mouse.get_pos()
                 if 275 <= mouse[0] <= 355 and 295 <= mouse[1] <= 320:
                     self.call_main = True
-                    #self.reset()
-                    break
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if 275 <= mouse[0] <= 355 and 335 <= mouse[1] <= 360:
                     sys.exit()
 
     def reset(self):
         """Resets values for a new game."""
-        self.call_main = True
+        self.call_main = False
         self.snake.length = 1
         self.snake.location = [((self.screen_size[0]/2), (self.screen_size[1]/2))]
         self.snake.direction = random.choice(list(self.directions.values()))

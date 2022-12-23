@@ -8,7 +8,8 @@ import pygame
 
 class TestSnake(unittest.TestCase):
     def setUp(self):
-        self.snake = Snake()
+        self.gameloop = GameLoop()
+        self.snake = Snake(self.gameloop.screen_size)
         self.score = Score()
         self.length = self.snake.length
         self.color = self.snake.color
@@ -51,28 +52,28 @@ class TestSnake(unittest.TestCase):
 
     # checks if direction changes
     def test_turn_up(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.direction = snake.directions["left"]
         snake.length == 2
         snake.turn_up()
         self.assertTupleEqual(snake.direction, (0, -1))
 
     def test_turn_down(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.direction = snake.directions["right"]
         snake.length == 2
         snake.turn_down()
         self.assertTupleEqual(snake.direction, (0, 1))
 
     def test_turn_left(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.direction = snake.directions["down"]
         snake.length == 2
         snake.turn_left()
         self.assertTupleEqual(snake.direction, (-1, 0))
 
     def test_turn_right(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.direction = snake.directions["left"]
         snake.length == 1
         snake.turn_right()
@@ -80,7 +81,7 @@ class TestSnake(unittest.TestCase):
 
     def turn_doesnt_turn_backwards(self):
         #?
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.direction = snake.directions["up"]
         snake.length == 2
         snake.turn_down()
@@ -124,7 +125,7 @@ class TestSnake(unittest.TestCase):
         # checks if function eating works with function move to grow snake
         food = Food()
         food.location = (40, 40)
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.location = [(40, 40)]
         snake.direction = snake.directions["up"]
         score = Score()
@@ -133,33 +134,33 @@ class TestSnake(unittest.TestCase):
         self.assertEqual(len(snake.location), 2)
 
     def test_dies_when_touches_wall_x(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.location = [(640, 240)]
         snake.direction = self.directions["down"]
         snake.move()
         self.assertTrue(snake.dead)
 
     def test_dies_when_touches_wall_y(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.location = [(340, 480)]
         snake.direction = self.directions["down"]
         snake.move()
         self.assertTrue(snake.dead)
 
     def test_dies_when_touches_itself(self): 
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         snake.location = [(360, 220), (360, 200), (380, 200), (400, 200), (400, 220), (400, 240), (380, 240), (360, 240), (340, 240), (320, 240)]
         snake.direction = self.directions["down"]
         snake.move()
         self.assertTrue(snake.dead)
 
     def test_draw_snake_counter_in_the_beginning(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         self.counter = snake.counter
         self.assertEqual(self.counter, 0)
 
     def test_draw_snake_len_1(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         gameloop = GameLoop()
         snake.counter = 0
         snake.length = 1
@@ -169,7 +170,7 @@ class TestSnake(unittest.TestCase):
         self.assertEqual(snake.counter, 1)
 
     def test_draw_snake_longer(self):
-        snake = Snake()
+        snake = Snake(self.gameloop.screen_size)
         gameloop = GameLoop()
         snake.counter = 0
         snake.length = 2
