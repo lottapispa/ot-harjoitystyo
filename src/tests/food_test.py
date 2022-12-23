@@ -32,6 +32,3 @@ class TestFood(unittest.TestCase):
         food.location = (240, 340)
         food.draw_food(gameloop.screen)
         self.assertEqual(food.location, (240, 340))
-        
-
-        

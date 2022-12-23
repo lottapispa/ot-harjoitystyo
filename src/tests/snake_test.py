@@ -13,13 +13,12 @@ class TestSnake(unittest.TestCase):
         self.score = Score()
         self.length = self.snake.length
         self.color = self.snake.color
-        self.screen_size = self.snake.screen_size #(640, 480)
+        self.screen_size = self.snake.screen_size
         self.location = self.snake.location
-        self.directions = self.snake.directions #up, down, left, right
+        self.directions = self.snake.directions
         self.counter = self.snake.counter
         self.step = self.snake.step
         self.dead = self.snake.dead
-        #self.events = GameLoop().events
         self.keyboard_events = KeyboardEvents().get()
 
     def test_correct_length_in_the_beginning(self):
@@ -78,14 +77,6 @@ class TestSnake(unittest.TestCase):
         snake.length == 1
         snake.turn_right()
         self.assertTupleEqual(snake.direction, (1, 0))
-
-    def turn_doesnt_turn_backwards(self):
-        #?
-        snake = Snake(self.gameloop.screen_size)
-        snake.direction = snake.directions["up"]
-        snake.length == 2
-        snake.turn_down()
-        self.assertTupleEqual(snake.direction, (0, -1))
 
     def test_move_changes_head_location_x(self):
         self.location = [(40, 40)]

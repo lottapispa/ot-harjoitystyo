@@ -1,5 +1,4 @@
 import unittest
-import pygame
 from fonts import Fonts
 from score import Score
 
