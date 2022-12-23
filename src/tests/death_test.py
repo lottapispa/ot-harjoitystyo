@@ -14,19 +14,10 @@ class TestDeath(unittest.TestCase):
         self.death = Death(self.snake, self.score, self.screen_size)
         self.die_called = self.death.die_called
 
-    def die_called_boolean_correct_in_the_beginning(self):
-        #?
+    def test_die_called_boolean_correct(self):
         self.death.die_called = False
         self.death.die()
         self.assertTrue(self.death.die_called)
-
-    def screen_works(self):
-        #?
-        self.screen = None
-
-    def die_call_rendering(self):
-        #?
-        pass
 
     def test_correct_screen(self):
         self.assertEqual(self.screen_size[0], 640)
@@ -34,6 +25,7 @@ class TestDeath(unittest.TestCase):
 
     def test_reset_works_correctly(self):
         self.death.reset()
+        self.assertFalse(self.death.call_main)
         self.assertEqual(self.snake.length, 1)
         self.assertEqual(self.snake.location, [((self.snake.screen_size[0]/2), (self.snake.screen_size[1]/2))])
         self.assertEqual(self.score.points, 0)
