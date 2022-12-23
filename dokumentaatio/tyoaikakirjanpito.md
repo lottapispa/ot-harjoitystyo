@@ -16,5 +16,5 @@
  | 20.12 | 6 | testauksen tekemistä, pylint korjauksia, yleisesti koodin paranteleminen
  | 21.12 | 8 | rakenteen korjausta, tehty lisää luokkia, testauksen tekemistä, pylint korjauksia, dokumentaation tekemistä, korjattu turn funktiot
  | 22.12 | 4,25 | testauksen tekemistä, uusi luokka fonts, pylint korjauksia, dokumentaation tekemistä
- | 23.12 | 6 | muutoksia koodiin, keyboard funktio uuteen luokkaan, testausta
- | yht. | 57
+ | 23.12 | 6,75 | muutoksia koodiin, keyboard funktio uuteen luokkaan, testausta, docstringin muokkausta/lisäämistä, dokumentaation parantamista
+ | yht. | 57,75
