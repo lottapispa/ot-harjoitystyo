@@ -84,6 +84,7 @@ classDiagram
         +snake
         +screen_size
         +events
+        +keyboard()
     }
 ```
 
