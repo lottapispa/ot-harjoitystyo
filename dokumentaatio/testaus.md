@@ -2,7 +2,7 @@
 ### Yksikkö- ja integraatiotestaus
 Ohjelman testauksessa on käytetty unitestiä.
 ### Testikattavuusraportti
-<img width="751" alt="Screenshot 2022-12-23 at 17 42 33" src="https://user-images.githubusercontent.com/101987621/209362732-b31d2eb5-21a5-4303-b410-43931021d761.png">
+<img width="764" alt="Screenshot 2022-12-23 at 19 15 25" src="https://user-images.githubusercontent.com/101987621/209375388-a71f8dd0-4e62-4310-bd0b-67190f19cceb.png">
 
 ### Puutteita testauksessa
 Testaus ei kata täysin luokkia KeyBoard, GameLoop, Death ja Snake.
