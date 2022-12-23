@@ -11,7 +11,7 @@ classDiagram
     GameLoop ..> Death
     GameLoop ..> KeyBoard
     GameLoop ..> KeyboardEvents
-    Death ...> Fonts
+    Death ..> Fonts
     class Snake{
         +int length
         +tuple color
