@@ -5,13 +5,13 @@ Ohjelmassa on 8 eri luokkaa: Snake, Food, Score, Death, Fonts, KeyBoard, Keyboar
 
 ```mermaid
 classDiagram
-    Snake -- GameLoop
-    Food -- GameLoop
-    Score -- GameLoop
-    Death -- GameLoop
-    KeyBoard -- GameLoop
-    KeyboardEvents -- GameLoop
-    Fonts -- Death
+    GameLoop ..> Snake
+    GameLoop ..> Food
+    GameLoop ..> Score
+    GameLoop ..> Death
+    GameLoop ..> KeyBoard
+    GameLoop ..> KeyboardEvents
+    Death ...> Fonts
     class Snake{
         +int length
         +tuple color
