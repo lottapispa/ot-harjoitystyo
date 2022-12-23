@@ -2,7 +2,7 @@
 ### Yksikkö- ja integraatiotestaus
 Ohjelman testauksessa on käytetty unitestiä.
 ### Testikattavuusraportti
-<img width="773" alt="Screenshot 2022-12-23 at 12 35 29" src="https://user-images.githubusercontent.com/101987621/209321814-5ba85b95-ef7f-4dc5-b7b2-8a8967b42e91.png">
+<img width="751" alt="Screenshot 2022-12-23 at 17 42 33" src="https://user-images.githubusercontent.com/101987621/209362732-b31d2eb5-21a5-4303-b410-43931021d761.png">
 
 ### Puutteita testauksessa
 Testaus ei kata while True silmukoita luokissa GameLoop ja Death.
