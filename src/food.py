@@ -15,5 +15,5 @@ class Food():
         self.location = (random.randint(10, 640-10), random.randint(10, 480-10))
 
     def draw_food(self, screen):
-        """Draws food."""
+        """Draws food on screen."""
         pygame.draw.circle(screen, self.color, self.location, self.size)

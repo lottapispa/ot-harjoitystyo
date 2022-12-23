@@ -29,7 +29,7 @@ class Snake():
 
     def draw_snake(self, screen):
         """Draws snake  by drawing a rectangle in every location in list.
-        Snake head has a black outline."""
+        Snake's head has a black outline."""
         self.counter = 0
         for loc in self.location:
             self.rect = pygame.Rect((loc[0], loc[1]), (20, 20))

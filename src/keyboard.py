@@ -2,7 +2,7 @@ import sys
 import pygame
 
 class KeyBoard():
-    """Class that has the game's main loop."""
+    """Class that handles arrow buttons."""
     def __init__(self, snake, screen_size, keyboard_events):
         """Class constructor."""
         self.snake = snake
@@ -10,6 +10,7 @@ class KeyBoard():
         self.events = keyboard_events
 
     def keyboard(self):
+        """Calls right turn functions when key is pressed."""
         for event in self.events.get():
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
