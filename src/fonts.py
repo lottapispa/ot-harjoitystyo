@@ -8,7 +8,6 @@ class Fonts():
         self.bigfont = pygame.font.SysFont("Candara", 36)
         self.game_over = None
         self.points = None
-        self.time = None
         self.highscore = None
         self.play_again = None
         self.quit_game = None
@@ -17,7 +16,6 @@ class Fonts():
         """Makes texts for game over window."""
         self.game_over = self.bigfont.render("Game Over", True, (255, 97, 3))
         self.points = self.font.render(f"Points: {score.points}", True, (255, 248, 220))
-        self.time = self.font.render("Time: ", True, (255, 248, 220))
         self.highscore = self.font.render(f"Highscore: {score.highscore}", True, (255, 248, 220))
         self.play_again = self.font.render("Play Again", True, (255, 248, 220))
         self.quit_game = self.font.render("Quit Game", True, (255, 248, 220))

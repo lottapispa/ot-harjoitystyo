@@ -27,16 +27,17 @@ class Death():
         # creating background
         self.screen = pygame.display.set_mode((self.screen_size[0], self.screen_size[1]))
         self.screen.fill((255, 248, 220))
-        pygame.draw.rect(self.screen, (0, 0, 0), (220, 100, 200, 290))
+        pygame.draw.rect(self.screen, (0, 0, 0), (220, 100, 200, 250))
+        pygame.draw.rect(self.screen, (50, 50, 50), (270, 250, 95, 25))
+        pygame.draw.rect(self.screen, (50, 50, 50), (270, 290, 95, 25))
 
         #getting texts and blitting them
         self.fonts.rendering_text(self.score)
         self.screen.blit(self.fonts.game_over, (250, 130))
         self.screen.blit(self.fonts.points, (275, 175))
-        self.screen.blit(self.fonts.time, (275, 215))
-        self.screen.blit(self.fonts.highscore, (275, 255))
-        self.screen.blit(self.fonts.play_again, (275, 295))
-        self.screen.blit(self.fonts.quit_game, (275, 335))
+        self.screen.blit(self.fonts.highscore, (275, 215))
+        self.screen.blit(self.fonts.play_again, (275, 255))
+        self.screen.blit(self.fonts.quit_game, (275, 295))
 
         pygame.display.flip()
 
@@ -46,9 +47,9 @@ class Death():
         for event in self.events.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 self.mouse = pygame.mouse.get_pos()
-                if 275 <= self.mouse[0] <= 355 and 295 <= self.mouse[1] <= 320:
+                if 270 <= self.mouse[0] <= 365 and 250 <= self.mouse[1] <= 275:
                     self.call_main = True
-                elif 275 <= self.mouse[0] <= 355 and 335 <= self.mouse[1] <= 360:
+                elif 270 <= self.mouse[0] <= 365 and 290 <= self.mouse[1] <= 315:
                     sys.exit()
             if event.type == pygame.QUIT:
                 sys.exit()
