@@ -1,6 +1,6 @@
 # Arkkitehtuuri
 ## Ohjelman rakenne
-Ohjelmassa on 7 eri luokkaa: Snake, Food, Score, Death, Fonts, KeyBoard ja GameLoop.
+Ohjelmassa on 8 eri luokkaa: Snake, Food, Score, Death, Fonts, KeyBoard, KeyboardEvents ja GameLoop. Luokka KeyboardEvents on tehty riippuvuuksien injektointia varten.
 ### Luokkakaavio
 
 ```mermaid
@@ -10,6 +10,7 @@ classDiagram
     Score -- GameLoop
     Death -- GameLoop
     KeyBoard -- GameLoop
+    KeyboardEvents -- GameLoop
     Fonts -- Death
     class Snake{
         +int length
@@ -85,6 +86,9 @@ classDiagram
         +screen_size
         +events
         +keyboard()
+    }
+    class KeyboardEvents{
+        +get()
     }
 ```
 
