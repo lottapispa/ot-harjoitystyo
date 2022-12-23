@@ -48,6 +48,7 @@ classDiagram
         +fonts
         +events
         +tuple screen_size
+        +screen
         +dict directions
         +bool die_called
         +bool call_main
