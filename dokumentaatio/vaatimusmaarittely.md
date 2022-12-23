@@ -11,10 +11,11 @@ Snake peli. Tarkoitus liikkua käärmeellä ruudulla ja kasvattaa sitä sekä py
 - Käärme kuolee, jos se osuu itseensä ✓
 - Peli päättyy, kun käärme kuolee ✓
 - Pelin päättyessä ruudulle tulee game over taulu ✓
-- Game over taulussa on pelin kesto, siitä saadut pisteet, highscore ja pelaa uudestaan & quit nappula. (kesto puuttuu)
+- Game over taulussa on pelin pisteet, highscore ja pelaa uudestaan & quit nappula + nappulat toimii oikein. ✓
 - Käärmeen pää on erilainen sen vartalosta ✓
 
 ## Mahdollisia lisäominaisuuksia tulevaisuudessa
 - Käärme liikkuu sitä nopeammin mitä enemmän se syö/kasvaa
 - Ruoka pysyy ruudulla vain hetken eli käärmeen pitää syödä se nopeasti
 - Eri väriset tai kokoiset ruoat kasvattaa käärmettä eri verran
+- Voi mitata pelin keston ja esittää sen game over ruudulla
