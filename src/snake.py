@@ -14,7 +14,6 @@ class Snake():
         self.direction = random.choice(list(self.directions.values()))
         self.counter = 0
         self.step = 20 # how much snake moves at once
-        self.duration = 0 # tracks how long the game lasts (not used yet)
         self.dead = False
 
     def head_location(self):

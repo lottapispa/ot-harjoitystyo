@@ -60,7 +60,6 @@ class Death():
         self.snake.location = [((self.screen_size[0]/2), (self.screen_size[1]/2))]
         self.snake.direction = random.choice(list(self.directions.values()))
         self.score.points = 0
-        self.snake.duration = 0
         self.snake.dead = False
         self.die_called = False
         self.call_main = False
