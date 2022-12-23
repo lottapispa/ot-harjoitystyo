@@ -102,7 +102,7 @@ sequenceDiagram
     participant Snake().turn_up()
     participant Snake().__init__()
     Player ->> KeyBoard().keyboard(): press "up" on keyboard
-    GameLoop().keyboard() ->> Snake().turn_up(): turn_up()
+    KeyBoard().keyboard() ->> Snake().turn_up(): turn_up()
     Snake().turn_up() ->> Snake().__init__(): direction = up
 ```
 
