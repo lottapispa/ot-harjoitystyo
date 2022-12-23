@@ -10,8 +10,8 @@ classDiagram
     Score -- GameLoop
     Death -- GameLoop
     Fonts -- Death
-    Score -- Snake
-    Score -- Food
+    Snake -- Score
+    Food -- Score
     class Snake{
         +int length
         +tuple color
