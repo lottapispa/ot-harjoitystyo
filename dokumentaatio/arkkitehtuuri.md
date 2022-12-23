@@ -21,7 +21,6 @@ classDiagram
         +tuple direction
         +int counter
         +int step
-        +int duration
         +bool dead
         +head_location()
         +head_rect()
