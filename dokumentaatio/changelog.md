@@ -24,6 +24,7 @@
 - Game_loop luokka tehty ja main loop siirretty siihen
 - Testaus edistynyt
 ### Viikko 7
-- Luokat omissa tiedostoissaan
+- Rakenne valmis: Luokat omissa tiedostoissaan
 - Highscore toimii oikein
+- Käärmettä ei voi kääntää taaksepäin (itsensä päälle), jos se on pidempi kuin 1
 - Testaus valmis
