@@ -27,5 +27,6 @@
 - Rakenne valmis: Luokat omissa tiedostoissaan
 - Highscore toimii oikein
 - Käärmettä ei voi kääntää taaksepäin (itsensä päälle), jos se on pidempi kuin 1
+- Pylint: rated yli 9/10
 - Testaus: Haaraumakattavuus yli 70 %
 - Dokumentaatio valmis: Kaaviot valmiita, hakemistossa 'kuvat' kaikista kaavioista jne. kuvat, vaatimusmäärittely ja työaikakirjanpito ajantasalla, testausdokumentti tehty, käyttöohje valmis, changelog valmis
