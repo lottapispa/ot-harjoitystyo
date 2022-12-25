@@ -11,7 +11,7 @@
 - Game over ikkuna ilmestyy, kun käärme kuolee
 - Play again ja quit game nappulat game over ikkunassa toimii
 ### Viikko 5
-- 0
+- 
 ### Viikko 6
 - Snake on saatu liikkumaan nuolinäppäimillä
 - Ruokaa ilmestyy ruudulle
