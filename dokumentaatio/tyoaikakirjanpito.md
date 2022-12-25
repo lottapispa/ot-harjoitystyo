@@ -17,5 +17,5 @@
  | 21.12 | 8 | rakenteen korjausta, tehty lisää luokkia, testauksen tekemistä, pylint korjauksia, dokumentaation tekemistä, korjattu turn funktiot
  | 22.12 | 4,25 | testauksen tekemistä, uusi luokka fonts, pylint korjauksia, dokumentaation tekemistä
  | 23.12 | 7,25 | muutoksia koodiin, keyboard funktio uuteen luokkaan, testausta, docstringin muokkausta/lisäämistä, dokumentaation parantamista, kuvien lisääminen kaavioista yms.
- | 25.12 | x | changelogin päivitys, releasen tekeminen
- | yht. | 58,25 
+ | 25.12 | 0,75 | muutama pylint korjaus, changelogin päivitys, releasen tekeminen
+ | yht. | 59
