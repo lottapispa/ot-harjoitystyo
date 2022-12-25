@@ -27,4 +27,5 @@
 - Rakenne valmis: Luokat omissa tiedostoissaan
 - Highscore toimii oikein
 - Käärmettä ei voi kääntää taaksepäin (itsensä päälle), jos se on pidempi kuin 1
-- Testaus valmis
+- Testaus: Haaraumakattavuus yli 70 %
+- Dokumentaatio valmis: Kaaviot valmiita, kuvat hakemistossa kaikista kaavioista jne. kuvat
